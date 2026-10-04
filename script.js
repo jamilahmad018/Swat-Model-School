@@ -1,82 +1,182 @@
-/* =========================================================
-   SWAT MODEL SCHOOL
-   Main JavaScript
-========================================================= */
-
 document.addEventListener("DOMContentLoaded", function () {
 
     /* =========================
-       MOBILE MENU
+       PRELOADER
     ========================= */
+    const preloader = document.getElementById("preloader");
 
-    const menuToggle = document.getElementById("menuToggle");
-    const navigation = document.getElementById("navigation");
-
-    if (menuToggle && navigation) {
-
-        menuToggle.addEventListener("click", function () {
-
-            navigation.classList.toggle("active");
-
-            const icon = menuToggle.querySelector("i");
-
-            if (navigation.classList.contains("active")) {
-                icon.classList.remove("fa-bars");
-                icon.classList.add("fa-xmark");
-            } else {
-                icon.classList.remove("fa-xmark");
-                icon.classList.add("fa-bars");
-            }
-
-        });
-
-
-        // Close menu after clicking a link
-        const navLinks = navigation.querySelectorAll("a");
-
-        navLinks.forEach(function (link) {
-
-            link.addEventListener("click", function () {
-
-                navigation.classList.remove("active");
-
-                const icon = menuToggle.querySelector("i");
-
-                icon.classList.remove("fa-xmark");
-                icon.classList.add("fa-bars");
-
-            });
-
-        });
-
-    }
+    setTimeout(function () {
+        if (preloader) {
+            preloader.classList.add("hide");
+        }
+    }, 900);
 
 
     /* =========================
        CURRENT YEAR
     ========================= */
+    const year = document.getElementById("year");
 
-    const currentYear = document.getElementById("currentYear");
+    if (year) {
+        year.textContent = new Date().getFullYear();
+    }
 
-    if (currentYear) {
-        currentYear.textContent = new Date().getFullYear();
+
+    /* =========================
+       HEADER SCROLL EFFECT
+    ========================= */
+    const header = document.querySelector(".main-header");
+
+    function handleHeaderScroll() {
+        if (!header) return;
+
+        if (window.scrollY > 40) {
+            header.classList.add("scrolled");
+        } else {
+            header.classList.remove("scrolled");
+        }
+    }
+
+    window.addEventListener("scroll", handleHeaderScroll);
+    handleHeaderScroll();
+
+
+    /* =========================
+       MOBILE MENU
+    ========================= */
+    const nav = document.getElementById("mainNav");
+    const menuButton = document.querySelector(".mobile-menu");
+
+    if (menuButton) {
+        menuButton.addEventListener("click", function () {
+            toggleMenu();
+        });
+    }
+
+
+    /* =========================
+       NAVIGATION LINKS
+    ========================= */
+    document.querySelectorAll(".nav-link").forEach(function (link) {
+
+        link.addEventListener("click", function () {
+
+            if (nav) {
+                nav.classList.remove("open");
+            }
+
+            if (menuButton) {
+                menuButton.classList.remove("active");
+            }
+
+        });
+
+    });
+
+
+    /* =========================
+       MODAL OVERLAY CLOSE
+    ========================= */
+    document.querySelectorAll(".modal").forEach(function (modal) {
+
+        modal.addEventListener("click", function (event) {
+
+            if (event.target === modal) {
+                closeModal(modal.id);
+            }
+
+        });
+
+    });
+
+
+    /* =========================
+       ESCAPE KEY
+    ========================= */
+    document.addEventListener("keydown", function (event) {
+
+        if (event.key === "Escape") {
+
+            document.querySelectorAll(".modal.show").forEach(function (modal) {
+                modal.classList.remove("show");
+            });
+
+            closeGallery();
+
+            document.body.classList.remove("modal-open");
+        }
+
+    });
+
+
+    /* =========================
+       WELCOME POPUP
+    ========================= */
+    setTimeout(function () {
+
+        if (!sessionStorage.getItem("smsWelcomeShown")) {
+
+            openModal("welcomeModal");
+
+            sessionStorage.setItem("smsWelcomeShown", "1");
+
+        }
+
+    }, 1400);
+
+
+    /* =========================
+       SCROLL REVEAL
+    ========================= */
+    const revealElements = document.querySelectorAll(
+        ".section-intro, .about-layout, .academic-card, .director-layout, " +
+        ".faculty-card, .why-item, .achievement-card, .gallery-modern, " +
+        ".admission-banner, .fee-layout, .contact-modern"
+    );
+
+    if ("IntersectionObserver" in window) {
+
+        const observer = new IntersectionObserver(
+            function (entries) {
+
+                entries.forEach(function (entry) {
+
+                    if (entry.isIntersecting) {
+
+                        entry.target.classList.add("visible");
+
+                        observer.unobserve(entry.target);
+
+                    }
+
+                });
+
+            },
+            {
+                threshold: 0.12
+            }
+        );
+
+        revealElements.forEach(function (element) {
+            element.classList.add("scroll-reveal");
+            observer.observe(element);
+        });
+
     }
 
 
     /* =========================
        ACTIVE NAVIGATION
     ========================= */
-
     const sections = document.querySelectorAll("section[id]");
-    const navLinks = document.querySelectorAll(".navigation a");
 
-    function updateActiveNavigation() {
+    function updateActiveNav() {
 
         let currentSection = "";
 
         sections.forEach(function (section) {
 
-            const sectionTop = section.offsetTop - 150;
+            const sectionTop = section.offsetTop - 180;
             const sectionHeight = section.offsetHeight;
 
             if (
@@ -88,8 +188,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         });
 
-
-        navLinks.forEach(function (link) {
+        document.querySelectorAll(".nav-link").forEach(function (link) {
 
             link.classList.remove("active");
 
@@ -103,204 +202,111 @@ document.addEventListener("DOMContentLoaded", function () {
 
     }
 
-
-    window.addEventListener("scroll", updateActiveNavigation);
-
-    updateActiveNavigation();
-
-
-    /* =========================
-       SCROLL REVEAL ANIMATION
-    ========================= */
-
-    const revealElements = document.querySelectorAll(
-        ".class-card, .feature-card, .student-card, .gallery-item, .quick-item, .contact-item"
-    );
-
-
-    revealElements.forEach(function (element) {
-
-        element.style.opacity = "0";
-        element.style.transform = "translateY(25px)";
-        element.style.transition =
-            "opacity 0.6s ease, transform 0.6s ease";
-
-    });
-
-
-    const revealObserver = new IntersectionObserver(
-
-        function (entries) {
-
-            entries.forEach(function (entry) {
-
-                if (entry.isIntersecting) {
-
-                    entry.target.style.opacity = "1";
-                    entry.target.style.transform = "translateY(0)";
-
-                    revealObserver.unobserve(entry.target);
-
-                }
-
-            });
-
-        },
-
-        {
-            threshold: 0.12
-        }
-
-    );
-
-
-    revealElements.forEach(function (element) {
-        revealObserver.observe(element);
-    });
-
-
-    /* =========================
-       HEADER SHADOW ON SCROLL
-    ========================= */
-
-    const header = document.querySelector(".header");
-
-    function updateHeader() {
-
-        if (window.scrollY > 30) {
-
-            header.style.boxShadow =
-                "0 8px 25px rgba(0, 0, 0, 0.08)";
-
-        } else {
-
-            header.style.boxShadow = "none";
-
-        }
-
-    }
-
-    window.addEventListener("scroll", updateHeader);
-
-    updateHeader();
-
-
-    /* =========================
-       SMOOTH SCROLL
-    ========================= */
-
-    const internalLinks = document.querySelectorAll(
-        'a[href^="#"]'
-    );
-
-
-    internalLinks.forEach(function (link) {
-
-        link.addEventListener("click", function (event) {
-
-            const targetId = this.getAttribute("href");
-
-            if (
-                targetId &&
-                targetId !== "#" &&
-                document.querySelector(targetId)
-            ) {
-
-                event.preventDefault();
-
-                const target = document.querySelector(targetId);
-
-                const headerHeight = header
-                    ? header.offsetHeight
-                    : 0;
-
-                const targetPosition =
-                    target.getBoundingClientRect().top +
-                    window.scrollY -
-                    headerHeight;
-
-                window.scrollTo({
-                    top: targetPosition,
-                    behavior: "smooth"
-                });
-
-            }
-
-        });
-
-    });
-
-
-    /* =========================
-       HERO ENTRANCE ANIMATION
-    ========================= */
-
-    const heroText = document.querySelector(".hero-text");
-    const heroCard = document.querySelector(".hero-card");
-
-    if (heroText) {
-
-        heroText.style.opacity = "0";
-        heroText.style.transform = "translateY(25px)";
-        heroText.style.transition =
-            "opacity 0.8s ease, transform 0.8s ease";
-
-        setTimeout(function () {
-
-            heroText.style.opacity = "1";
-            heroText.style.transform = "translateY(0)";
-
-        }, 150);
-
-    }
-
-
-    if (heroCard) {
-
-        heroCard.style.opacity = "0";
-        heroCard.style.transform = "translateX(30px)";
-        heroCard.style.transition =
-            "opacity 0.8s ease 0.2s, transform 0.8s ease 0.2s";
-
-        setTimeout(function () {
-
-            heroCard.style.opacity = "1";
-            heroCard.style.transform = "translateX(0)";
-
-        }, 200);
-
-    }
-
-
-    /* =========================
-       BUTTON RIPPLE EFFECT
-    ========================= */
-
-    const buttons = document.querySelectorAll(".btn");
-
-    buttons.forEach(function (button) {
-
-        button.addEventListener("click", function () {
-
-            button.style.transform = "scale(0.98)";
-
-            setTimeout(function () {
-
-                button.style.transform = "";
-
-            }, 120);
-
-        });
-
-    });
-
-
-    /* =========================
-       CONSOLE MESSAGE
-    ========================= */
-
-    console.log(
-        "Swat Model School website loaded successfully."
-    );
+    window.addEventListener("scroll", updateActiveNav);
+    updateActiveNav();
 
 });
+
+
+/* =========================
+   MOBILE MENU FUNCTION
+========================= */
+
+function toggleMenu() {
+
+    const nav = document.getElementById("mainNav");
+    const menuButton = document.querySelector(".mobile-menu");
+
+    if (!nav) return;
+
+    nav.classList.toggle("open");
+
+    if (menuButton) {
+        menuButton.classList.toggle("active");
+    }
+
+}
+
+
+/* =========================
+   OPEN MODAL
+========================= */
+
+function openModal(id) {
+
+    const modal = document.getElementById(id);
+
+    if (!modal) return;
+
+    modal.classList.add("show");
+
+    document.body.classList.add("modal-open");
+
+}
+
+
+/* =========================
+   CLOSE MODAL
+========================= */
+
+function closeModal(id) {
+
+    const modal = document.getElementById(id);
+
+    if (!modal) return;
+
+    modal.classList.remove("show");
+
+    const remainingModals = document.querySelectorAll(".modal.show");
+
+    if (remainingModals.length === 0) {
+        document.body.classList.remove("modal-open");
+    }
+
+}
+
+
+/* =========================
+   GALLERY LIGHTBOX
+========================= */
+
+function openGallery(src) {
+
+    const lightbox = document.getElementById("lightbox");
+    const image = document.getElementById("lightboxImage");
+
+    if (!lightbox || !image) return;
+
+    image.src = src;
+
+    lightbox.classList.add("show");
+
+    document.body.classList.add("modal-open");
+
+}
+
+
+/* =========================
+   CLOSE GALLERY
+========================= */
+
+function closeGallery() {
+
+    const lightbox = document.getElementById("lightbox");
+    const image = document.getElementById("lightboxImage");
+
+    if (!lightbox) return;
+
+    lightbox.classList.remove("show");
+
+    if (image) {
+        image.src = "";
+    }
+
+    const remainingModals = document.querySelectorAll(".modal.show");
+
+    if (remainingModals.length === 0) {
+        document.body.classList.remove("modal-open");
+    }
+
+}
