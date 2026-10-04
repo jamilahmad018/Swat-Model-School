@@ -1,65 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="Swat Model School Darmai, Swat - Quality education from Nursery to Grade 10.">
+
+    <meta
+        name="keywords"
+        content="Swat Model School, Darmai School, Swat School, Schools in Swat">
+
+    <meta name="author" content="Swat Model School">
 
     <title>Swat Model School | Darmai, Swat</title>
 
-    <meta name="description"
-          content="Swat Model School, Darmai, Swat — Learn, Grow, Lead. Quality education from Nursery to Grade 10.">
+    <!-- =====================================================
+         FAVICON
+    ====================================================== -->
+    <link rel="icon" href="logo.png">
 
+    <!-- =====================================================
+         FONT AWESOME
+    ====================================================== -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <!-- =====================================================
+         WEBSITE CSS
+    ====================================================== -->
     <link rel="stylesheet" href="style.css">
 </head>
 
+
 <body>
 
-<!-- =====================================================
+
+<!-- =========================================================
      PRELOADER
-===================================================== -->
+========================================================= -->
 
 <div id="preloader">
-    <div class="loader-logo">
-        <img src="logo.png" alt="Swat Model School">
+
+    <div class="preloader-inner">
+
+        <img
+            src="logo.png"
+            alt="Swat Model School"
+            class="preloader-logo">
+
+        <p>Swat Model School</p>
+
+        <small>
+            Darmai, Swat
+        </small>
+
     </div>
-    <div class="loader-line"></div>
+
 </div>
 
 
-<!-- =====================================================
+
+<!-- =========================================================
      WELCOME POPUP
-===================================================== -->
+========================================================= -->
 
 <div class="modal" id="welcomeModal">
 
-    <div class="modal-overlay" onclick="closeModal('welcomeModal')"></div>
-
     <div class="modal-box welcome-modal">
 
-        <button class="modal-close"
-                onclick="closeModal('welcomeModal')">
-            ×
+        <button
+            type="button"
+            class="modal-close"
+            onclick="closeModal('welcomeModal')">
+
+            &times;
+
         </button>
 
-        <img src="logo.png"
-             class="modal-logo"
-             alt="Swat Model School Logo">
+        <img
+            src="logo.png"
+            alt="Swat Model School Logo"
+            class="modal-logo">
 
-        <span class="modal-label">WELCOME TO</span>
+        <span class="modal-label">
+            Welcome
+        </span>
 
-        <h2>Swat Model School</h2>
+        <h2>
+            Welcome to
+            <span>Swat Model School</span>
+        </h2>
 
         <p>
-            Darmai, Swat
+            A place where knowledge, character and confidence
+            grow together.
         </p>
 
-        <div class="welcome-motto">
-            LEARN <span>•</span> GROW <span>•</span> LEAD
-        </div>
+        <button
+            type="button"
+            class="btn btn-primary"
+            onclick="closeModal('welcomeModal')">
 
-        <button class="gold-btn"
-                onclick="closeModal('welcomeModal')">
-            Explore Our School
+            Explore School
+            <i class="fa-solid fa-arrow-right"></i>
+
         </button>
 
     </div>
@@ -67,26 +118,47 @@
 </div>
 
 
-<!-- =====================================================
+
+<!-- =========================================================
      TOP BAR
-===================================================== -->
+========================================================= -->
 
 <div class="topbar">
 
-    <div class="container topbar-inner">
+    <div class="topbar-inner">
 
-        <div>
-            📍 Darmai, Swat
+        <div class="topbar-left">
+
+            <span>
+                <i class="fa-solid fa-location-dot"></i>
+                Darmai, Swat, Khyber Pakhtunkhwa
+            </span>
+
+            <span>
+                <i class="fa-regular fa-clock"></i>
+                8:00 AM – 2:00 PM
+            </span>
+
         </div>
+
 
         <div class="topbar-right">
 
-            <span>
-                🕐 8:00 AM – 2:00 PM
-            </span>
+            <a
+                href="tel:+923452077262"
+                aria-label="Call School">
 
-            <a href="tel:03452077262">
-                📞 0345-2077262
+                <i class="fa-solid fa-phone"></i>
+
+            </a>
+
+            <a
+                href="https://wa.me/923452077262"
+                target="_blank"
+                aria-label="WhatsApp">
+
+                <i class="fa-brands fa-whatsapp"></i>
+
             </a>
 
         </div>
@@ -96,82 +168,127 @@
 </div>
 
 
-<!-- =====================================================
+
+<!-- =========================================================
      NAVIGATION
-===================================================== -->
+========================================================= -->
 
-<header class="main-header">
+<header class="navbar">
 
-    <div class="container navbar">
+    <div class="navbar-inner">
 
-        <a href="#home" class="brand">
 
-            <img src="logo.png"
-                 alt="SMS Logo">
+        <!-- BRAND -->
 
-            <div>
-                <strong>Swat Model School</strong>
-                <small>Darmai, Swat</small>
+        <a
+            href="#home"
+            class="brand">
+
+            <img
+                src="logo.png"
+                alt="Swat Model School Logo">
+
+            <div class="brand-text">
+
+                <strong>
+                    Swat Model School
+                </strong>
+
+                <span>
+                    Darmai, Swat
+                </span>
+
             </div>
 
         </a>
 
 
-        <button class="mobile-menu"
-                onclick="toggleMenu()"
-                aria-label="Open Menu">
 
-            <span></span>
-            <span></span>
-            <span></span>
+        <!-- MOBILE MENU -->
+
+        <button
+            type="button"
+            class="mobile-menu"
+            onclick="toggleMenu()"
+            aria-label="Open Menu">
+
+            <i class="fa-solid fa-bars"></i>
 
         </button>
 
 
+
+        <!-- NAV -->
+
         <nav id="mainNav">
 
-            <a href="#home" class="nav-link active">
+            <a
+                href="#home"
+                class="nav-link active">
+
                 Home
+
             </a>
 
-            <a href="#about" class="nav-link">
+            <a
+                href="#about"
+                class="nav-link">
+
                 About
+
             </a>
 
-            <a href="#academics" class="nav-link">
+            <a
+                href="#academics"
+                class="nav-link">
+
                 Academics
+
             </a>
 
-            <a href="#faculty" class="nav-link">
+            <a
+                href="#faculty"
+                class="nav-link">
+
                 Faculty
+
             </a>
 
-            <a href="#achievements" class="nav-link">
+            <a
+                href="#achievements"
+                class="nav-link">
+
                 Achievements
+
             </a>
 
-            <a href="#gallery" class="nav-link">
+            <a
+                href="#gallery"
+                class="nav-link">
+
                 Gallery
+
             </a>
 
-            <a href="#admissions" class="nav-link">
-                Admissions
-            </a>
+            <a
+                href="#contact"
+                class="nav-link">
 
-            <a href="#contact" class="nav-link">
                 Contact
+
             </a>
+
+            <button
+                type="button"
+                class="nav-cta"
+                onclick="openModal('admissionModal')">
+
+                Apply Now
+                <i class="fa-solid fa-arrow-right"></i>
+
+            </button>
 
         </nav>
-
-
-        <a href="https://wa.me/923452077262"
-           target="_blank"
-           class="nav-cta">
-
-            WhatsApp
-
-        </a>
 
     </div>
 
@@ -179,84 +296,112 @@
 
 
 
-<!-- =====================================================
+<!-- =========================================================
      HERO
-===================================================== -->
+========================================================= -->
 
-<section class="hero" id="home">
+<section
+    class="hero"
+    id="home">
 
-    <div class="hero-background"></div>
+    <div class="hero-bg">
+
+        <img
+            src="school-building-1.png"
+            alt="Swat Model School Building">
+
+    </div>
+
 
     <div class="hero-overlay"></div>
 
 
-    <div class="container hero-container">
+    <div class="container hero-content">
 
-        <div class="hero-content">
+        <div class="hero-badge">
 
-            <div class="hero-kicker">
-                <span></span>
-                LEARN • GROW • LEAD
-                <span></span>
+            <span></span>
+
+            Admissions Open
+
+        </div>
+
+
+        <h1>
+
+            Building
+            <span>Bright Futures</span>
+            Through Education
+
+        </h1>
+
+
+        <p>
+
+            Welcome to Swat Model School, Darmai.
+            We provide quality education, character building
+            and a positive learning environment from
+            Nursery to Grade 10.
+
+        </p>
+
+
+        <div class="hero-actions">
+
+            <button
+                type="button"
+                class="btn btn-primary"
+                onclick="openModal('admissionModal')">
+
+                Apply for Admission
+
+                <i class="fa-solid fa-arrow-right"></i>
+
+            </button>
+
+
+            <a
+                href="#about"
+                class="btn btn-outline">
+
+                Discover Our School
+
+            </a>
+
+        </div>
+
+
+        <div class="hero-mini-info">
+
+            <div>
+
+                <i class="fa-solid fa-graduation-cap"></i>
+
+                <span>
+                    Nursery – Grade 10
+                </span>
+
             </div>
 
 
-            <h1>
+            <div>
 
-                Shaping Minds.
-                <br>
+                <i class="fa-solid fa-clock"></i>
 
-                <em>Building Futures.</em>
-
-            </h1>
-
-
-            <p class="hero-description">
-
-                Welcome to Swat Model School — where education,
-                character and creativity come together to prepare
-                students for a brighter future.
-
-            </p>
-
-
-            <div class="hero-actions">
-
-                <a href="#about"
-                   class="gold-btn">
-
-                    Discover Our School
-                    <span>→</span>
-
-                </a>
-
-
-                <button class="glass-btn"
-                        onclick="openModal('admissionModal')">
-
-                    Admission Enquiry
-
-                </button>
+                <span>
+                    8:00 AM – 2:00 PM
+                </span>
 
             </div>
 
 
-            <div class="hero-mini-info">
+            <div>
 
-                <div>
-                    <strong>Nursery</strong>
-                    <span>to Grade 10</span>
-                </div>
+                <i class="fa-solid fa-location-dot"></i>
 
-                <div>
-                    <strong>8:00</strong>
-                    <span>AM – 2:00 PM</span>
-                </div>
-
-                <div>
-                    <strong>Darmai</strong>
-                    <span>Swat</span>
-                </div>
+                <span>
+                    Darmai, Swat
+                </span>
 
             </div>
 
@@ -264,80 +409,117 @@
 
     </div>
 
-
-    <div class="hero-scroll">
-
-        <span>Scroll to explore</span>
-        <div class="scroll-line"></div>
-
-    </div>
-
 </section>
 
 
 
-<!-- =====================================================
-     FLOATING QUICK BAR
-===================================================== -->
+<!-- =========================================================
+     QUICK ACCESS
+========================================================= -->
 
 <section class="quick-bar">
 
-    <div class="container quick-bar-grid">
+    <div class="quick-bar-grid">
 
 
-        <a href="#academics" class="quick-item">
+        <a
+            href="#academics"
+            class="quick-item">
 
-            <span class="quick-icon">🎓</span>
+            <div class="quick-icon">
 
-            <div>
-                <strong>Academics</strong>
-                <small>Nursery to Grade 10</small>
+                <i class="fa-solid fa-book-open"></i>
+
             </div>
 
-            <span class="arrow">→</span>
+            <div>
+
+                <strong>
+                    Academics
+                </strong>
+
+                <span>
+                    Classes & Subjects
+                </span>
+
+            </div>
 
         </a>
 
 
-        <a href="#faculty" class="quick-item">
+        <button
+            type="button"
+            class="quick-item"
+            onclick="openModal('facultyInfoModal')">
 
-            <span class="quick-icon">👨‍🏫</span>
+            <div class="quick-icon">
 
-            <div>
-                <strong>Our Faculty</strong>
-                <small>Dedicated educators</small>
+                <i class="fa-solid fa-chalkboard-user"></i>
+
             </div>
 
-            <span class="arrow">→</span>
+            <div>
+
+                <strong>
+                    Faculty
+                </strong>
+
+                <span>
+                    Meet Our Teachers
+                </span>
+
+            </div>
+
+        </button>
+
+
+        <a
+            href="#gallery"
+            class="quick-item">
+
+            <div class="quick-icon">
+
+                <i class="fa-solid fa-images"></i>
+
+            </div>
+
+            <div>
+
+                <strong>
+                    Gallery
+                </strong>
+
+                <span>
+                    School Activities
+                </span>
+
+            </div>
 
         </a>
 
 
-        <a href="#achievements" class="quick-item">
+        <button
+            type="button"
+            class="quick-item"
+            onclick="openModal('admissionModal')">
 
-            <span class="quick-icon">🏆</span>
+            <div class="quick-icon">
 
-            <div>
-                <strong>Achievements</strong>
-                <small>Celebrating excellence</small>
+                <i class="fa-solid fa-file-pen"></i>
+
             </div>
 
-            <span class="arrow">→</span>
-
-        </a>
-
-
-        <button class="quick-item"
-                onclick="openModal('admissionModal')">
-
-            <span class="quick-icon">📝</span>
-
             <div>
-                <strong>Admissions</strong>
-                <small>Start your enquiry</small>
-            </div>
 
-            <span class="arrow">→</span>
+                <strong>
+                    Admissions
+                </strong>
+
+                <span>
+                    Apply Online
+                </span>
+
+            </div>
 
         </button>
 
@@ -348,102 +530,132 @@
 
 
 
-<!-- =====================================================
+<!-- =========================================================
      ABOUT
-===================================================== -->
+========================================================= -->
 
-<section class="section about-section" id="about">
+<section
+    class="section about-section"
+    id="about">
 
-    <div class="container">
-
-        <div class="section-intro">
-
-            <span class="eyebrow">
-                ABOUT SWAT MODEL SCHOOL
-            </span>
-
-            <h2>
-                Education with a
-                <em>purpose.</em>
-            </h2>
-
-            <p>
-                We believe every child deserves an environment
-                where curiosity is encouraged, confidence grows
-                and character matters.
-            </p>
-
-        </div>
+    <div class="container about-layout">
 
 
-        <div class="about-layout">
+        <div class="about-visual scroll-reveal">
 
+            <div class="image-card">
 
-            <div class="about-visual">
+                <img
+                    src="school-building-2.png"
+                    alt="Swat Model School Building">
 
-                <img src="school-building-1.png"
-                     alt="Swat Model School Building">
+                <div class="image-card-badge">
 
-                <div class="image-badge">
-
-                    <strong>SMS</strong>
+                    <strong>
+                        SMS
+                    </strong>
 
                     <span>
-                        Learn • Grow • Lead
+                        Learn • Grow • Succeed
                     </span>
 
                 </div>
 
             </div>
 
-
-            <div class="about-copy">
-
-                <span class="small-number">
-                    01
-                </span>
-
-                <h3>
-                    A place where
-                    students discover
-                    their potential.
-                </h3>
-
-                <p>
-                    Swat Model School, Darmai, Swat is committed
-                    to providing students with quality education
-                    in a supportive and inspiring environment.
-                </p>
-
-                <p>
-                    Our approach goes beyond textbooks. We focus
-                    on academic learning, discipline, creativity,
-                    confidence, moral values and practical
-                    experiences.
-                </p>
+        </div>
 
 
-                <div class="values-grid">
 
-                    <div class="value">
-                        <span>01</span>
-                        <strong>Quality Education</strong>
-                    </div>
+        <div class="about-copy scroll-reveal">
 
-                    <div class="value">
-                        <span>02</span>
-                        <strong>Character Building</strong>
-                    </div>
+            <span class="section-label">
+                ABOUT OUR SCHOOL
+            </span>
 
-                    <div class="value">
-                        <span>03</span>
-                        <strong>Modern Learning</strong>
-                    </div>
+            <h2>
 
-                    <div class="value">
-                        <span>04</span>
-                        <strong>Student Growth</strong>
-                    </div>
+                Education That
+                <span>Shapes Tomorrow</span>
+
+            </h2>
+
+            <p>
+
+                Swat Model School is committed to creating
+                a learning environment where students can
+                develop academically, socially and personally.
+
+            </p>
+
+            <p>
+
+                Our focus is not only on textbooks and
+                examinations, but also on discipline,
+                confidence, creativity, communication and
+                positive character.
+
+            </p>
+
+
+            <div class="values-grid">
+
+                <div class="value-card">
+
+                    <i class="fa-solid fa-book"></i>
+
+                    <strong>
+                        Quality Education
+                    </strong>
+
+                    <span>
+                        Strong academic foundation
+                    </span>
+
+                </div>
+
+
+                <div class="value-card">
+
+                    <i class="fa-solid fa-heart"></i>
+
+                    <strong>
+                        Character Building
+                    </strong>
+
+                    <span>
+                        Values, manners & discipline
+                    </span>
+
+                </div>
+
+
+                <div class="value-card">
+
+                    <i class="fa-solid fa-lightbulb"></i>
+
+                    <strong>
+                        Creativity
+                    </strong>
+
+                    <span>
+                        Learning beyond textbooks
+                    </span>
+
+                </div>
+
+
+                <div class="value-card">
+
+                    <i class="fa-solid fa-people-group"></i>
+
+                    <strong>
+                        Confidence
+                    </strong>
+
+                    <span>
+                        Helping students express themselves
+                    </span>
 
                 </div>
 
@@ -457,33 +669,74 @@
 
 
 
-<!-- =====================================================
+<!-- =========================================================
      STATS
-===================================================== -->
+========================================================= -->
 
-<section class="stats">
+<section class="stats-section">
 
     <div class="container stats-grid">
 
-        <div class="stat">
-            <strong>Nursery – 10</strong>
-            <span>Classes</span>
-        </div>
 
         <div class="stat">
-            <strong>8 AM – 2 PM</strong>
-            <span>School Hours</span>
+
+            <i class="fa-solid fa-school"></i>
+
+            <strong>
+                SMS
+            </strong>
+
+            <span>
+                Swat Model School
+            </span>
+
         </div>
 
-        <div class="stat">
-            <strong>SMS</strong>
-            <span>Our Identity</span>
-        </div>
 
         <div class="stat">
-            <strong>∞</strong>
-            <span>Potential</span>
+
+            <i class="fa-solid fa-layer-group"></i>
+
+            <strong>
+                10+
+            </strong>
+
+            <span>
+                Grade Levels
+            </span>
+
         </div>
+
+
+        <div class="stat">
+
+            <i class="fa-solid fa-clock"></i>
+
+            <strong>
+                8–2
+            </strong>
+
+            <span>
+                School Timing
+            </span>
+
+        </div>
+
+
+        <div class="stat">
+
+            <i class="fa-solid fa-location-dot"></i>
+
+            <strong>
+                Swat
+            </strong>
+
+            <span>
+                Darmai Campus
+            </span>
+
+        </div>
+
 
     </div>
 
@@ -491,29 +744,31 @@
 
 
 
-<!-- =====================================================
+<!-- =========================================================
      ACADEMICS
-===================================================== -->
+========================================================= -->
 
-<section class="section academics-section"
-         id="academics">
+<section
+    class="section academics-section"
+    id="academics">
 
     <div class="container">
 
-        <div class="section-intro centered">
 
-            <span class="eyebrow">
+        <div class="section-heading scroll-reveal">
+
+            <span class="section-label">
                 ACADEMICS
             </span>
 
             <h2>
-                Learning that goes
-                <em>beyond books.</em>
+                Learning for Every
+                <span>Stage</span>
             </h2>
 
             <p>
-                A balanced academic environment designed to
-                develop knowledge, confidence and curiosity.
+                A structured learning journey from early childhood
+                education to secondary level.
             </p>
 
         </div>
@@ -522,100 +777,157 @@
         <div class="academic-cards">
 
 
-            <article class="academic-card">
-
-                <span class="card-number">01</span>
+            <div class="academic-card scroll-reveal">
 
                 <div class="academic-icon">
-                    📖
+
+                    <i class="fa-solid fa-puzzle-piece"></i>
+
                 </div>
 
-                <h3>Early Years</h3>
-
-                <p>
-                    Building strong foundations through
-                    engaging and activity-based learning.
-                </p>
-
-                <span class="academic-level">
-                    Nursery • KG
+                <span class="academic-number">
+                    01
                 </span>
 
-            </article>
-
-
-            <article class="academic-card featured">
-
-                <span class="card-number">02</span>
-
-                <div class="academic-icon">
-                    🎒
-                </div>
-
-                <h3>Primary</h3>
+                <h3>
+                    Early Years
+                </h3>
 
                 <p>
-                    Developing strong foundations in core
-                    subjects and essential learning skills.
+                    Nursery & Prep
                 </p>
 
-                <span class="academic-level">
+                <ul>
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        English
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Urdu
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Mathematics
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Activity Based Learning
+                    </li>
+
+                </ul>
+
+            </div>
+
+
+
+            <div class="academic-card featured scroll-reveal">
+
+                <div class="academic-icon">
+
+                    <i class="fa-solid fa-book-open-reader"></i>
+
+                </div>
+
+                <span class="academic-number">
+                    02
+                </span>
+
+                <h3>
+                    Primary
+                </h3>
+
+                <p>
                     Grade 1 – 5
-                </span>
-
-            </article>
-
-
-            <article class="academic-card">
-
-                <span class="card-number">03</span>
-
-                <div class="academic-icon">
-                    🔬
-                </div>
-
-                <h3>Middle School</h3>
-
-                <p>
-                    Encouraging deeper understanding,
-                    exploration and independent thinking.
                 </p>
 
-                <span class="academic-level">
-                    Grade 6 – 8
-                </span>
+                <ul>
 
-            </article>
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        English
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Urdu
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Mathematics
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        General Science
+                    </li>
+
+                </ul>
+
+            </div>
 
 
-            <article class="academic-card">
 
-                <span class="card-number">04</span>
+            <div class="academic-card scroll-reveal">
 
                 <div class="academic-icon">
-                    🎓
+
+                    <i class="fa-solid fa-flask"></i>
+
                 </div>
 
-                <h3>Secondary</h3>
-
-                <p>
-                    Preparing students for academic success
-                    and their next stage of education.
-                </p>
-
-                <span class="academic-level">
-                    Grade 9 – 10
+                <span class="academic-number">
+                    03
                 </span>
 
-            </article>
+                <h3>
+                    Middle & Secondary
+                </h3>
+
+                <p>
+                    Grade 6 – 10
+                </p>
+
+                <ul>
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Science
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Mathematics
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        English
+                    </li>
+
+                    <li>
+                        <i class="fa-solid fa-check"></i>
+                        Urdu & Other Subjects
+                    </li>
+
+                </ul>
+
+            </div>
 
 
         </div>
 
 
-        <div class="subjects-strip">
+        <div class="subject-strip">
 
-            <span>Subjects</span>
+            <span>
+                Subjects
+            </span>
 
             <div>
                 English
@@ -634,15 +946,11 @@
             </div>
 
             <div>
-                Computer
+                Social Studies
             </div>
 
             <div>
                 Islamiat
-            </div>
-
-            <div>
-                Social Studies
             </div>
 
         </div>
@@ -653,54 +961,87 @@
 
 
 
-<!-- =====================================================
+<!-- =========================================================
      DIRECTOR
-===================================================== -->
+========================================================= -->
 
-<section class="director-section">
+<section class="section director-section">
 
     <div class="container director-layout">
 
-        <div class="director-photo">
 
-            <img src="director.png"
-                 alt="Hazrat Ali - Director">
+        <div class="director-image scroll-reveal">
+
+            <div class="director-photo-wrap">
+
+                <img
+                    src="director.png"
+                    alt="Director Hazrat Ali">
+
+                <div class="director-badge">
+
+                    <i class="fa-solid fa-award"></i>
+
+                    <span>
+                        School Director
+                    </span>
+
+                </div>
+
+            </div>
 
         </div>
 
 
-        <div class="director-text">
 
-            <span class="eyebrow">
-                MESSAGE FROM LEADERSHIP
+        <div class="director-text scroll-reveal">
+
+            <span class="section-label">
+                MESSAGE FROM DIRECTOR
             </span>
 
-            <div class="quote">
-                “
+            <h2>
+
+                A Message from
+                <span>Hazrat Ali</span>
+
+            </h2>
+
+
+            <div class="quote-mark">
+                "
             </div>
 
-            <blockquote>
 
-                Our mission is to provide every child with
-                an opportunity to learn, grow and become a
-                responsible member of society.
+            <p class="director-message">
 
-            </blockquote>
+                At Swat Model School, our goal is to provide
+                students with an environment where they can
+                learn with confidence, develop strong moral
+                values and prepare themselves for a successful
+                future.
+
+            </p>
+
 
             <p>
-                We believe true education develops knowledge,
-                confidence, discipline and character. Our
-                dedicated team works to create an environment
-                where students can discover their potential
-                and prepare themselves for a successful future.
+
+                We believe that every child has unique potential.
+                With the right guidance, encouragement and
+                educational environment, that potential can become
+                a meaningful achievement.
+
             </p>
+
 
             <div class="director-signature">
 
-                <strong>Hazrat Ali</strong>
+                <strong>
+                    Hazrat Ali
+                </strong>
 
                 <span>
-                    Director — Swat Model School
+                    Director, Swat Model School
                 </span>
 
             </div>
@@ -713,29 +1054,31 @@
 
 
 
-<!-- =====================================================
+<!-- =========================================================
      FACULTY
-===================================================== -->
+========================================================= -->
 
-<section class="section faculty-section"
-         id="faculty">
+<section
+    class="section faculty-section"
+    id="faculty">
 
     <div class="container">
 
-        <div class="section-intro centered">
 
-            <span class="eyebrow">
+        <div class="section-heading scroll-reveal">
+
+            <span class="section-label">
                 OUR FACULTY
             </span>
 
             <h2>
-                Meet the people
-                <em>behind the learning.</em>
+                Meet Our
+                <span>Teachers</span>
             </h2>
 
             <p>
-                Our teachers play an important role in creating
-                a positive and inspiring learning environment.
+                Dedicated educators helping students learn,
+                grow and achieve their potential.
             </p>
 
         </div>
@@ -744,120 +1087,175 @@
         <div class="faculty-grid">
 
 
-            <!-- PROFILE 1 -->
+            <!-- TEACHER 1 -->
 
-            <article class="faculty-card">
+            <button
+                type="button"
+                class="faculty-card scroll-reveal"
+                onclick="openTeacher(
+                    'Senior Teacher',
+                    'Academic & Classroom Support',
+                    'Experienced in student guidance, classroom management and academic development.',
+                    'fa-user-tie'
+                )">
 
-                <div class="faculty-avatar">
-                    👨‍🏫
+                <div class="faculty-photo">
+
+                    <i class="fa-solid fa-user-tie"></i>
+
                 </div>
 
-                <div class="faculty-info">
+                <div class="faculty-content">
 
-                    <span>FACULTY MEMBER</span>
+                    <span>
+                        Faculty Member
+                    </span>
 
                     <h3>
                         Senior Teacher
                     </h3>
 
                     <p>
-                        Academic Department
+                        Academic & Classroom Support
                     </p>
 
-                    <button onclick="openModal('teacher1')">
-                        View Profile →
-                    </button>
+                    <b>
+                        View Profile
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </b>
 
                 </div>
 
-            </article>
+            </button>
 
 
-            <!-- PROFILE 2 -->
 
-            <article class="faculty-card">
+            <!-- TEACHER 2 -->
 
-                <div class="faculty-avatar">
-                    👩‍🏫
+            <button
+                type="button"
+                class="faculty-card scroll-reveal"
+                onclick="openTeacher(
+                    'Primary Teacher',
+                    'Primary Section',
+                    'Focused on creating an engaging, friendly and effective learning environment for young learners.',
+                    'fa-person-chalkboard'
+                )">
+
+                <div class="faculty-photo pink">
+
+                    <i class="fa-solid fa-person-chalkboard"></i>
+
                 </div>
 
-                <div class="faculty-info">
+                <div class="faculty-content">
 
-                    <span>FACULTY MEMBER</span>
+                    <span>
+                        Faculty Member
+                    </span>
 
                     <h3>
                         Primary Teacher
                     </h3>
 
                     <p>
-                        Primary Department
+                        Primary Section
                     </p>
 
-                    <button onclick="openModal('teacher2')">
-                        View Profile →
-                    </button>
+                    <b>
+                        View Profile
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </b>
 
                 </div>
 
-            </article>
+            </button>
 
 
-            <!-- PROFILE 3 -->
 
-            <article class="faculty-card">
+            <!-- TEACHER 3 -->
 
-                <div class="faculty-avatar">
-                    👨‍🏫
+            <button
+                type="button"
+                class="faculty-card scroll-reveal"
+                onclick="openTeacher(
+                    'Science Teacher',
+                    'Science & Practical Learning',
+                    'Encouraging curiosity, observation and practical understanding of scientific concepts.',
+                    'fa-flask'
+                )">
+
+                <div class="faculty-photo">
+
+                    <i class="fa-solid fa-flask"></i>
+
                 </div>
 
-                <div class="faculty-info">
+                <div class="faculty-content">
 
-                    <span>FACULTY MEMBER</span>
+                    <span>
+                        Faculty Member
+                    </span>
 
                     <h3>
                         Science Teacher
                     </h3>
 
                     <p>
-                        Science Department
+                        Science & Practical Learning
                     </p>
 
-                    <button onclick="openModal('teacher3')">
-                        View Profile →
-                    </button>
+                    <b>
+                        View Profile
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </b>
 
                 </div>
 
-            </article>
+            </button>
 
 
-            <!-- PROFILE 4 -->
 
-            <article class="faculty-card">
+            <!-- TEACHER 4 -->
 
-                <div class="faculty-avatar">
-                    👩‍🏫
+            <button
+                type="button"
+                class="faculty-card scroll-reveal"
+                onclick="openTeacher(
+                    'Language Teacher',
+                    'English & Urdu',
+                    'Helping students improve communication, language skills, reading and writing.',
+                    'fa-language'
+                )">
+
+                <div class="faculty-photo pink">
+
+                    <i class="fa-solid fa-language"></i>
+
                 </div>
 
-                <div class="faculty-info">
+                <div class="faculty-content">
 
-                    <span>FACULTY MEMBER</span>
+                    <span>
+                        Faculty Member
+                    </span>
 
                     <h3>
                         Language Teacher
                     </h3>
 
                     <p>
-                        Languages Department
+                        English & Urdu
                     </p>
 
-                    <button onclick="openModal('teacher4')">
-                        View Profile →
-                    </button>
+                    <b>
+                        View Profile
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </b>
 
                 </div>
 
-            </article>
+            </button>
 
 
         </div>
@@ -865,15 +1263,12 @@
 
         <div class="faculty-note">
 
-            <span>+</span>
+            <i class="fa-solid fa-circle-info"></i>
 
-            <div>
-                <strong>More faculty profiles coming soon</strong>
-                <p>
-                    Teacher names, photos, qualifications and
-                    subjects can be added here.
-                </p>
-            </div>
+            <span>
+                Teacher names and individual profile photos can be
+                added as the school provides the official faculty details.
+            </span>
 
         </div>
 
@@ -883,65 +1278,116 @@
 
 
 
-<!-- =====================================================
-     WHY SMS
-===================================================== -->
+<!-- =========================================================
+     WHY SWAT MODEL SCHOOL
+========================================================= -->
 
 <section class="section why-section">
 
     <div class="container">
 
-        <div class="section-intro">
 
-            <span class="eyebrow">
+        <div class="section-heading scroll-reveal">
+
+            <span class="section-label">
                 WHY CHOOSE SMS
             </span>
 
             <h2>
-                Growing students,
-                <em>not just grades.</em>
+                More Than
+                <span>Education</span>
             </h2>
+
+            <p>
+                We aim to help students become confident,
+                responsible and capable individuals.
+            </p>
 
         </div>
 
 
         <div class="why-grid">
 
-            <div class="why-item">
-                <span>01</span>
-                <h3>Strong Foundations</h3>
+
+            <div class="why-card scroll-reveal">
+
+                <div class="why-number">
+                    01
+                </div>
+
+                <i class="fa-solid fa-shield-heart"></i>
+
+                <h3>
+                    Safe Environment
+                </h3>
+
                 <p>
-                    Focus on essential academic skills
-                    from the earliest years.
+                    A positive environment where students
+                    can learn with confidence.
                 </p>
+
             </div>
 
-            <div class="why-item">
-                <span>02</span>
-                <h3>Character & Values</h3>
+
+            <div class="why-card scroll-reveal">
+
+                <div class="why-number">
+                    02
+                </div>
+
+                <i class="fa-solid fa-brain"></i>
+
+                <h3>
+                    Strong Learning
+                </h3>
+
                 <p>
-                    Developing responsible, respectful
-                    and confident young people.
+                    Academic development supported by
+                    structured classroom learning.
                 </p>
+
             </div>
 
-            <div class="why-item">
-                <span>03</span>
-                <h3>Activities & Creativity</h3>
+
+            <div class="why-card scroll-reveal">
+
+                <div class="why-number">
+                    03
+                </div>
+
+                <i class="fa-solid fa-person-running"></i>
+
+                <h3>
+                    Activities
+                </h3>
+
                 <p>
-                    Learning through sports, arts,
-                    activities and experiences.
+                    Activities that encourage participation,
+                    confidence and teamwork.
                 </p>
+
             </div>
 
-            <div class="why-item">
-                <span>04</span>
-                <h3>Future Ready</h3>
+
+            <div class="why-card scroll-reveal">
+
+                <div class="why-number">
+                    04
+                </div>
+
+                <i class="fa-solid fa-star"></i>
+
+                <h3>
+                    Character
+                </h3>
+
                 <p>
-                    Encouraging curiosity, technology
-                    awareness and independent thinking.
+                    We encourage discipline, respect,
+                    responsibility and good manners.
                 </p>
+
             </div>
+
 
         </div>
 
@@ -951,29 +1397,31 @@
 
 
 
-<!-- =====================================================
+<!-- =========================================================
      ACHIEVEMENTS
-===================================================== -->
+========================================================= -->
 
-<section class="section achievements-section"
-         id="achievements">
+<section
+    class="section achievements-section"
+    id="achievements">
 
     <div class="container">
 
-        <div class="section-intro centered">
 
-            <span class="eyebrow">
-                STUDENT SUCCESS
+        <div class="section-heading scroll-reveal">
+
+            <span class="section-label">
+                ACHIEVEMENTS
             </span>
 
             <h2>
                 Celebrating
-                <em>achievement.</em>
+                <span>Success</span>
             </h2>
 
             <p>
                 Every achievement represents effort,
-                dedication and confidence.
+                dedication and determination.
             </p>
 
         </div>
@@ -982,97 +1430,101 @@
         <div class="achievement-grid">
 
 
-            <article class="achievement-card"
-                     onclick="openModal('studentBoy')">
+            <div
+                class="achievement-card scroll-reveal"
+                onclick="openLightbox('achievements.png')">
 
                 <div class="achievement-image">
 
-                    <img src="top-student-boy.png"
-                         alt="Outstanding Student">
-
-                    <span class="achievement-tag">
-                        🏆 Achievement
-                    </span>
+                    <img
+                        src="achievements.png"
+                        alt="School Achievements">
 
                 </div>
 
                 <div class="achievement-content">
 
-                    <span>STUDENT EXCELLENCE</span>
+                    <span class="card-label">
+                        Achievement
+                    </span>
 
                     <h3>
-                        Outstanding Student
+                        Student Success
                     </h3>
 
-                    <button>
-                        View Details →
-                    </button>
+                    <p>
+                        Celebrating academic and extracurricular
+                        achievements of our students.
+                    </p>
 
                 </div>
 
-            </article>
+            </div>
 
 
-            <article class="achievement-card"
-                     onclick="openModal('studentGirl')">
+
+            <div
+                class="achievement-card scroll-reveal"
+                onclick="openStudent('top-student-boy.png','Top Student','Academic Achievement','Outstanding student performance.')">
 
                 <div class="achievement-image">
 
-                    <img src="top-student-girl.png"
-                         alt="Outstanding Student">
-
-                    <span class="achievement-tag">
-                        🥇 Excellence
-                    </span>
+                    <img
+                        src="top-student-boy.png"
+                        alt="Top Student">
 
                 </div>
 
                 <div class="achievement-content">
 
-                    <span>STUDENT EXCELLENCE</span>
+                    <span class="card-label">
+                        Student Achievement
+                    </span>
 
                     <h3>
-                        Outstanding Student
+                        Top Student
                     </h3>
 
-                    <button>
-                        View Details →
-                    </button>
+                    <p>
+                        Recognizing hard work and academic excellence.
+                    </p>
 
                 </div>
 
-            </article>
+            </div>
 
 
-            <article class="achievement-card"
-                     onclick="openModal('schoolAchievement')">
+
+            <div
+                class="achievement-card scroll-reveal"
+                onclick="openStudent('top-student-girl.png','Top Student','Academic Achievement','Recognizing dedication and outstanding performance.')">
 
                 <div class="achievement-image">
 
-                    <img src="achievements.png"
-                         alt="School Achievements">
-
-                    <span class="achievement-tag">
-                        ⭐ SMS
-                    </span>
+                    <img
+                        src="top-student-girl.png"
+                        alt="Top Student">
 
                 </div>
 
                 <div class="achievement-content">
 
-                    <span>SCHOOL ACHIEVEMENTS</span>
+                    <span class="card-label">
+                        Student Achievement
+                    </span>
 
                     <h3>
-                        Growing Together
+                        Academic Excellence
                     </h3>
 
-                    <button>
-                        Explore →
-                    </button>
+                    <p>
+                        Encouraging students to aim higher and
+                        achieve their goals.
+                    </p>
 
                 </div>
 
-            </article>
+            </div>
 
 
         </div>
@@ -1083,29 +1535,31 @@
 
 
 
-<!-- =====================================================
+<!-- =========================================================
      GALLERY
-===================================================== -->
+========================================================= -->
 
-<section class="section gallery-section"
-         id="gallery">
+<section
+    class="section gallery-section"
+    id="gallery">
 
     <div class="container">
 
-        <div class="section-intro centered">
 
-            <span class="eyebrow">
-                SCHOOL LIFE
+        <div class="section-heading scroll-reveal">
+
+            <span class="section-label">
+                SCHOOL GALLERY
             </span>
 
             <h2>
                 Life at
-                <em>SMS.</em>
+                <span>SMS</span>
             </h2>
 
             <p>
-                A glimpse into our campus, activities
-                and memorable moments.
+                A glimpse of our school environment,
+                activities and student life.
             </p>
 
         </div>
@@ -1114,80 +1568,83 @@
         <div class="gallery-modern">
 
 
-            <div class="gallery-main"
-                 onclick="openGallery('activities.png')">
+            <div
+                class="gallery-main"
+                onclick="openLightbox('activities.png')">
 
-                <img src="activities.png"
-                     alt="School Activities">
+                <img
+                    src="activities.png"
+                    alt="School Activities">
 
                 <div class="gallery-overlay">
 
-                    <span>01</span>
+                    <span class="gallery-label">
 
-                    <h3>
+                        <i class="fa-solid fa-camera"></i>
                         School Activities
-                    </h3>
 
-                    <p>
-                        Explore school life →
-                    </p>
+                    </span>
 
                 </div>
 
             </div>
 
 
-            <div class="gallery-small"
-                 onclick="openGallery('school-building-1.png')">
 
-                <img src="school-building-1.png"
-                     alt="School Building">
+            <div
+                class="gallery-small"
+                onclick="openLightbox('school-building-1.png')">
 
-                <div class="gallery-label">
-                    Campus
+                <img
+                    src="school-building-1.png"
+                    alt="School Building">
+
+                <div class="gallery-overlay">
+
+                    <span class="gallery-label">
+                        School Campus
+                    </span>
+
                 </div>
 
             </div>
 
 
-            <div class="gallery-small"
-                 onclick="openGallery('school-building-2.png')">
 
-                <img src="school-building-2.png"
-                     alt="School Campus">
+            <div
+                class="gallery-small"
+                onclick="openLightbox('school-building-2.png')">
 
-                <div class="gallery-label">
-                    Our School
+                <img
+                    src="school-building-2.png"
+                    alt="School Campus">
+
+                <div class="gallery-overlay">
+
+                    <span class="gallery-label">
+                        Our Campus
+                    </span>
+
                 </div>
 
             </div>
 
 
-            <div class="gallery-small"
-                 onclick="openGallery('top-student-boy.png')">
-
-                <img src="top-student-boy.png"
-                     alt="Student Achievement">
-
-                <div class="gallery-label">
-                    Students
-                </div>
-
-            </div>
+        </div>
 
 
-            <div class="gallery-small"
-                 onclick="openGallery('top-student-girl.png')">
+        <div class="gallery-more">
 
-                <img src="top-student-girl.png"
-                     alt="Student Achievement">
+            <button
+                type="button"
+                class="btn btn-outline-blue"
+                onclick="openLightbox('achievements.png')">
 
-                <div class="gallery-label">
-                    Excellence
-                </div>
+                View More
 
-            </div>
+                <i class="fa-solid fa-images"></i>
 
+            </button>
 
         </div>
 
@@ -1197,41 +1654,50 @@
 
 
 
-<!-- =====================================================
-     ADMISSIONS
-===================================================== -->
+<!-- =========================================================
+     ADMISSIONS BANNER
+========================================================= -->
 
-<section class="admissions-section"
-         id="admissions">
+<section class="admissions-section">
 
-    <div class="container admission-banner">
+    <div class="container">
 
-        <div>
-
-            <span class="eyebrow">
-                ADMISSIONS
-            </span>
-
-            <h2>
-                Give your child
-                <em>a brighter beginning.</em>
-            </h2>
-
-            <p>
-                Admissions are available for eligible students
-                from Nursery to Grade 10.
-            </p>
-
-        </div>
+        <div class="admission-banner">
 
 
-        <button class="gold-btn"
+            <div>
+
+                <span class="section-label light">
+                    ADMISSIONS
+                </span>
+
+                <h2>
+                    Give Your Child a
+                    <span>Bright Start</span>
+                </h2>
+
+                <p>
+                    Applications are welcome for Nursery to
+                    Grade 10. Complete our online admission
+                    form and our administration will contact you.
+                </p>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="btn"
                 onclick="openModal('admissionModal')">
 
-            Admission Enquiry
-            <span>→</span>
+                Apply Online
 
-        </button>
+                <i class="fa-solid fa-arrow-right"></i>
+
+            </button>
+
+
+        </div>
 
     </div>
 
@@ -1239,53 +1705,111 @@
 
 
 
-<!-- =====================================================
-     FEE INFORMATION
-===================================================== -->
+<!-- =========================================================
+     FEES / PAYMENT
+========================================================= -->
 
 <section class="section fee-section">
 
     <div class="container">
 
+
+        <div class="section-heading scroll-reveal">
+
+            <span class="section-label">
+                FEE & PAYMENT
+            </span>
+
+            <h2>
+                Simple & Convenient
+                <span>Payment</span>
+            </h2>
+
+            <p>
+                Fee structure details will be updated soon.
+            </p>
+
+        </div>
+
+
         <div class="fee-layout">
 
-            <div>
 
-                <span class="eyebrow">
-                    FEE INFORMATION
-                </span>
+            <div class="fee-info scroll-reveal">
 
-                <h2>
-                    Simple & transparent.
-                </h2>
+                <div class="fee-icon">
 
-                <p>
-                    Detailed fee structure will be announced
-                    soon. For current information, please
-                    contact the school administration.
-                </p>
+                    <i class="fa-solid fa-file-invoice-dollar"></i>
 
-            </div>
-
-
-            <div class="payment-card">
-
-                <span>FEE / PAYMENT</span>
+                </div>
 
                 <h3>
-                    EasyPaisa
+                    Fee Structure
                 </h3>
 
-                <strong>
-                    0345-2077262
-                </strong>
-
                 <p>
-                    Account Name:
-                    <b>Jamil Ahmad</b>
+                    Complete fee structure and class-wise
+                    charges will be announced by the school
+                    administration.
                 </p>
 
+
+                <div class="coming-soon">
+
+                    <i class="fa-regular fa-clock"></i>
+
+                    Fee Details Coming Soon
+
+                </div>
+
             </div>
+
+
+
+            <div class="payment-card scroll-reveal">
+
+                <div class="payment-icon">
+
+                    <i class="fa-solid fa-mobile-screen-button"></i>
+
+                </div>
+
+                <h3>
+                    Easypaisa
+                </h3>
+
+                <p>
+                    For payment information:
+                </p>
+
+                <div class="payment-number">
+
+                    0345-2077262
+
+                </div>
+
+                <div class="payment-name">
+
+                    Account Name:
+                    <strong>
+                        Jamil Ahmad
+                    </strong>
+
+                </div>
+
+
+                <a
+                    href="tel:+923452077262"
+                    class="payment-button">
+
+                    <i class="fa-solid fa-phone"></i>
+
+                    Contact for Payment
+
+                </a>
+
+            </div>
+
 
         </div>
 
@@ -1295,25 +1819,31 @@
 
 
 
-<!-- =====================================================
+<!-- =========================================================
      CONTACT
-===================================================== -->
+========================================================= -->
 
-<section class="section contact-section"
-         id="contact">
+<section
+    class="section contact-section"
+    id="contact">
 
     <div class="container">
 
-        <div class="section-intro centered">
 
-            <span class="eyebrow">
-                CONTACT
+        <div class="section-heading scroll-reveal">
+
+            <span class="section-label">
+                CONTACT US
             </span>
 
             <h2>
-                Let's stay
-                <em>connected.</em>
+                Find
+                <span>Swat Model School</span>
             </h2>
+
+            <p>
+                We are located in Darmai, Swat.
+            </p>
 
         </div>
 
@@ -1321,55 +1851,112 @@
         <div class="contact-modern">
 
 
-            <div class="contact-details">
-
-
-                <a href="tel:03452077262"
-                   class="contact-box">
-
-                    <span>📞</span>
-
-                    <div>
-                        <small>CALL US</small>
-                        <strong>0345-2077262</strong>
-                    </div>
-
-                </a>
-
-
-                <a href="https://wa.me/923452077262"
-                   target="_blank"
-                   class="contact-box">
-
-                    <span>💬</span>
-
-                    <div>
-                        <small>WHATSAPP</small>
-                        <strong>Chat with us</strong>
-                    </div>
-
-                </a>
+            <div class="contact-details scroll-reveal">
 
 
                 <div class="contact-box">
 
-                    <span>📍</span>
+                    <div class="contact-box-icon">
+
+                        <i class="fa-solid fa-location-dot"></i>
+
+                    </div>
 
                     <div>
-                        <small>LOCATION</small>
-                        <strong>Darmai, Swat</strong>
+
+                        <span>
+                            Address
+                        </span>
+
+                        <strong>
+                            Darmai, Swat,
+                            Khyber Pakhtunkhwa, Pakistan
+                        </strong>
+
                     </div>
 
                 </div>
 
 
+
                 <div class="contact-box">
 
-                    <span>🕐</span>
+                    <div class="contact-box-icon">
+
+                        <i class="fa-solid fa-phone"></i>
+
+                    </div>
 
                     <div>
-                        <small>SCHOOL HOURS</small>
-                        <strong>8:00 AM – 2:00 PM</strong>
+
+                        <span>
+                            Phone
+                        </span>
+
+                        <strong>
+
+                            <a href="tel:+923452077262">
+                                0345-2077262
+                            </a>
+
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="contact-box">
+
+                    <div class="contact-box-icon">
+
+                        <i class="fa-brands fa-whatsapp"></i>
+
+                    </div>
+
+                    <div>
+
+                        <span>
+                            WhatsApp
+                        </span>
+
+                        <strong>
+
+                            <a
+                                href="https://wa.me/923452077262"
+                                target="_blank">
+
+                                Chat with School
+
+                            </a>
+
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="contact-box">
+
+                    <div class="contact-box-icon">
+
+                        <i class="fa-regular fa-clock"></i>
+
+                    </div>
+
+                    <div>
+
+                        <span>
+                            School Timing
+                        </span>
+
+                        <strong>
+                            8:00 AM – 2:00 PM
+                        </strong>
+
                     </div>
 
                 </div>
@@ -1378,12 +1965,17 @@
             </div>
 
 
-            <div class="map-wrapper">
+
+            <div class="map-wrapper scroll-reveal">
 
                 <iframe
                     src="https://www.google.com/maps?q=Darmai%2C%20Swat%2C%20Pakistan&output=embed"
+                    width="100%"
+                    height="450"
+                    style="border:0;"
+                    allowfullscreen=""
                     loading="lazy"
-                    allowfullscreen>
+                    referrerpolicy="no-referrer-when-downgrade">
                 </iframe>
 
             </div>
@@ -1397,47 +1989,70 @@
 
 
 
-<!-- =====================================================
+<!-- =========================================================
      FOOTER
-===================================================== -->
+========================================================= -->
 
 <footer class="footer">
 
     <div class="container footer-main">
 
 
-        <div class="footer-brand">
+        <div class="footer-about">
 
-            <img src="logo.png"
-                 alt="SMS Logo">
+            <div class="footer-brand">
 
-            <h3>
-                Swat Model School
-            </h3>
+                <img
+                    src="logo.png"
+                    alt="Swat Model School">
+
+                <div>
+
+                    <strong>
+                        Swat Model School
+                    </strong>
+
+                    <span>
+                        Darmai, Swat
+                    </span>
+
+                </div>
+
+            </div>
+
 
             <p>
-                Darmai, Swat
+
+                Building bright futures through quality
+                education, character building and a positive
+                learning environment.
+
             </p>
 
-            <span>
-                LEARN • GROW • LEAD
-            </span>
+
+            <div class="footer-social">
+
+                <a
+                    href="https://wa.me/923452077262"
+                    target="_blank"
+                    aria-label="WhatsApp">
+
+                    <i class="fa-brands fa-whatsapp"></i>
+
+                </a>
+
+                <a
+                    href="tel:+923452077262"
+                    aria-label="Phone">
+
+                    <i class="fa-solid fa-phone"></i>
+
+                </a>
+
+            </div>
 
         </div>
 
-
-        <div class="footer-column">
-
-            <h4>
-                Explore
-            </h4>
-
-            <a href="#about">About</a>
-            <a href="#academics">Academics</a>
-            <a href="#faculty">Faculty</a>
-            <a href="#achievements">Achievements</a>
-
-        </div>
 
 
         <div class="footer-column">
@@ -1446,11 +2061,50 @@
                 School
             </h4>
 
-            <a href="#gallery">Gallery</a>
-            <a href="#admissions">Admissions</a>
-            <a href="#contact">Contact</a>
+            <a href="#about">
+                About Us
+            </a>
+
+            <a href="#academics">
+                Academics
+            </a>
+
+            <a href="#faculty">
+                Faculty
+            </a>
+
+            <a href="#achievements">
+                Achievements
+            </a>
 
         </div>
+
+
+
+        <div class="footer-column">
+
+            <h4>
+                Explore
+            </h4>
+
+            <a href="#gallery">
+                Gallery
+            </a>
+
+            <a href="#contact">
+                Contact
+            </a>
+
+            <button
+                type="button"
+                onclick="openModal('admissionModal')">
+
+                Admissions
+
+            </button>
+
+        </div>
+
 
 
         <div class="footer-column">
@@ -1459,13 +2113,13 @@
                 Contact
             </h4>
 
-            <a href="tel:03452077262">
-                0345-2077262
-            </a>
-
             <span>
                 Darmai, Swat
             </span>
+
+            <a href="tel:+923452077262">
+                0345-2077262
+            </a>
 
             <span>
                 8:00 AM – 2:00 PM
@@ -1482,12 +2136,12 @@
         <div class="container">
 
             <span>
-                © <span id="year"></span>
-                Swat Model School. All Rights Reserved.
+                © 2026 Swat Model School.
+                All Rights Reserved.
             </span>
 
             <span>
-                Learn • Grow • Lead
+                Darmai, Swat
             </span>
 
         </div>
@@ -1498,67 +2152,108 @@
 
 
 
-<!-- =====================================================
+<!-- =========================================================
      FLOATING WHATSAPP
-===================================================== -->
+========================================================= -->
 
-<a href="https://wa.me/923452077262"
-   target="_blank"
-   class="floating-whatsapp"
-   aria-label="WhatsApp">
+<a
+    href="https://wa.me/923452077262"
+    target="_blank"
+    class="floating-whatsapp"
+    aria-label="WhatsApp School">
 
-    💬
+    <i class="fa-brands fa-whatsapp"></i>
 
 </a>
 
 
 
-<!-- =====================================================
-     TEACHER POPUPS
-===================================================== -->
+<!-- =========================================================
+     TEACHER PROFILE MODAL
+========================================================= -->
 
-
-<div class="modal" id="teacher1">
-
-    <div class="modal-overlay"
-         onclick="closeModal('teacher1')"></div>
+<div
+    class="modal"
+    id="teacherModal">
 
     <div class="modal-box teacher-modal">
 
-        <button class="modal-close"
-                onclick="closeModal('teacher1')">
-            ×
+        <button
+            type="button"
+            class="modal-close"
+            onclick="closeModal('teacherModal')">
+
+            &times;
+
         </button>
 
-        <div class="profile-icon">👨‍🏫</div>
+
+        <div class="teacher-modal-icon">
+
+            <i id="teacherModalIcon"
+               class="fa-solid fa-user-tie"></i>
+
+        </div>
+
 
         <span class="modal-label">
-            FACULTY MEMBER
+            Faculty Profile
         </span>
 
-        <h2>Senior Teacher</h2>
 
-        <p>
-            Academic Department
+        <h2 id="teacherModalName">
+            Teacher
+        </h2>
+
+
+        <h4 id="teacherModalRole">
+            Faculty Member
+        </h4>
+
+
+        <p id="teacherModalDescription">
+            Teacher profile information.
         </p>
+
 
         <div class="profile-details">
 
             <div>
-                <span>Department</span>
-                <strong>Academic</strong>
+
+                <strong>
+                    Department
+                </strong>
+
+                <span id="teacherModalDepartment">
+                    Academic
+                </span>
+
             </div>
 
+
             <div>
-                <span>Role</span>
-                <strong>Senior Teacher</strong>
+
+                <strong>
+                    School
+                </strong>
+
+                <span>
+                    Swat Model School
+                </span>
+
             </div>
 
         </div>
+
 
         <p class="profile-note">
-            Teacher name, photograph, qualification and
-            experience can be added here.
+
+            <i class="fa-solid fa-circle-info"></i>
+
+            Official teacher names and photographs
+            will be added after receiving the school's
+            confirmed faculty information.
+
         </p>
 
     </div>
@@ -1567,325 +2262,72 @@
 
 
 
-<div class="modal" id="teacher2">
+<!-- =========================================================
+     FACULTY INFO MODAL
+========================================================= -->
 
-    <div class="modal-overlay"
-         onclick="closeModal('teacher2')"></div>
+<div
+    class="modal"
+    id="facultyInfoModal">
 
-    <div class="modal-box teacher-modal">
+    <div class="modal-box">
 
-        <button class="modal-close"
-                onclick="closeModal('teacher2')">
-            ×
+        <button
+            type="button"
+            class="modal-close"
+            onclick="closeModal('facultyInfoModal')">
+
+            &times;
+
         </button>
 
-        <div class="profile-icon">👩‍🏫</div>
 
-        <span class="modal-label">
-            FACULTY MEMBER
-        </span>
+        <div class="notice-icon">
 
-        <h2>Primary Teacher</h2>
-
-        <p>
-            Primary Department
-        </p>
-
-        <div class="profile-details">
-
-            <div>
-                <span>Department</span>
-                <strong>Primary</strong>
-            </div>
-
-            <div>
-                <span>Role</span>
-                <strong>Teacher</strong>
-            </div>
+            <i class="fa-solid fa-chalkboard-user"></i>
 
         </div>
 
-        <p class="profile-note">
-            Teacher name, photograph, qualification and
-            experience can be added here.
-        </p>
-
-    </div>
-
-</div>
-
-
-
-<div class="modal" id="teacher3">
-
-    <div class="modal-overlay"
-         onclick="closeModal('teacher3')"></div>
-
-    <div class="modal-box teacher-modal">
-
-        <button class="modal-close"
-                onclick="closeModal('teacher3')">
-            ×
-        </button>
-
-        <div class="profile-icon">👨‍🏫</div>
 
         <span class="modal-label">
-            FACULTY MEMBER
+            Our Faculty
         </span>
 
-        <h2>Science Teacher</h2>
-
-        <p>
-            Science Department
-        </p>
-
-        <div class="profile-details">
-
-            <div>
-                <span>Department</span>
-                <strong>Science</strong>
-            </div>
-
-            <div>
-                <span>Role</span>
-                <strong>Teacher</strong>
-            </div>
-
-        </div>
-
-        <p class="profile-note">
-            Teacher name, photograph, qualification and
-            experience can be added here.
-        </p>
-
-    </div>
-
-</div>
-
-
-
-<div class="modal" id="teacher4">
-
-    <div class="modal-overlay"
-         onclick="closeModal('teacher4')"></div>
-
-    <div class="modal-box teacher-modal">
-
-        <button class="modal-close"
-                onclick="closeModal('teacher4')">
-            ×
-        </button>
-
-        <div class="profile-icon">👩‍🏫</div>
-
-        <span class="modal-label">
-            FACULTY MEMBER
-        </span>
-
-        <h2>Language Teacher</h2>
-
-        <p>
-            Languages Department
-        </p>
-
-        <div class="profile-details">
-
-            <div>
-                <span>Department</span>
-                <strong>Languages</strong>
-            </div>
-
-            <div>
-                <span>Role</span>
-                <strong>Teacher</strong>
-            </div>
-
-        </div>
-
-        <p class="profile-note">
-            Teacher name, photograph, qualification and
-            experience can be added here.
-        </p>
-
-    </div>
-
-</div>
-
-
-
-<!-- =====================================================
-     STUDENT POPUPS
-===================================================== -->
-
-<div class="modal" id="studentBoy">
-
-    <div class="modal-overlay"
-         onclick="closeModal('studentBoy')"></div>
-
-    <div class="modal-box student-modal">
-
-        <button class="modal-close"
-                onclick="closeModal('studentBoy')">
-            ×
-        </button>
-
-        <img src="top-student-boy.png"
-             alt="Student">
-
-        <span class="modal-label">
-            STUDENT ACHIEVEMENT
-        </span>
 
         <h2>
-            Outstanding Student
+            Dedicated
+            <span>Teachers</span>
         </h2>
 
-        <p>
-            Celebrating dedication, confidence and
-            achievement.
-        </p>
-
-    </div>
-
-</div>
-
-
-
-<div class="modal" id="studentGirl">
-
-    <div class="modal-overlay"
-         onclick="closeModal('studentGirl')"></div>
-
-    <div class="modal-box student-modal">
-
-        <button class="modal-close"
-                onclick="closeModal('studentGirl')">
-            ×
-        </button>
-
-        <img src="top-student-girl.png"
-             alt="Student">
-
-        <span class="modal-label">
-            STUDENT ACHIEVEMENT
-        </span>
-
-        <h2>
-            Outstanding Student
-        </h2>
 
         <p>
-            Celebrating dedication, confidence and
-            achievement.
+
+            Our teachers play an important role in creating
+            a supportive learning environment for students.
+
         </p>
-
-    </div>
-
-</div>
-
-
-
-<div class="modal" id="schoolAchievement">
-
-    <div class="modal-overlay"
-         onclick="closeModal('schoolAchievement')"></div>
-
-    <div class="modal-box student-modal">
-
-        <button class="modal-close"
-                onclick="closeModal('schoolAchievement')">
-            ×
-        </button>
-
-        <img src="achievements.png"
-             alt="School Achievements">
-
-        <span class="modal-label">
-            SCHOOL ACHIEVEMENTS
-        </span>
-
-        <h2>
-            Growing Together
-        </h2>
-
-        <p>
-            Every achievement is a step towards a
-            brighter future.
-        </p>
-
-    </div>
-
-</div>
-
-
-
-<!-- =====================================================
-     ADMISSION POPUP
-===================================================== -->
-
-<div class="modal" id="admissionModal">
-
-    <div class="modal-overlay"
-         onclick="closeModal('admissionModal')"></div>
-
-    <div class="modal-box admission-modal">
-
-        <button class="modal-close"
-                onclick="closeModal('admissionModal')">
-            ×
-        </button>
-
-        <span class="modal-label">
-            ADMISSION ENQUIRY
-        </span>
-
-        <h2>
-            Start Your Child's Journey
-        </h2>
-
-        <p>
-            Contact Swat Model School for admission
-            information and available seats.
-        </p>
-
-
-        <div class="admission-contact">
-
-            <a href="tel:03452077262">
-                📞 Call: 0345-2077262
-            </a>
-
-            <a href="https://wa.me/923452077262"
-               target="_blank">
-
-                💬 WhatsApp Us
-
-            </a>
-
-        </div>
 
 
         <div class="admission-steps">
 
             <div>
-                <span>01</span>
-                Enquiry
+                <i class="fa-solid fa-check"></i>
+                Academic guidance
             </div>
 
             <div>
-                <span>02</span>
-                Application
+                <i class="fa-solid fa-check"></i>
+                Classroom learning
             </div>
 
             <div>
-                <span>03</span>
-                Assessment
+                <i class="fa-solid fa-check"></i>
+                Student development
             </div>
 
             <div>
-                <span>04</span>
-                Admission
+                <i class="fa-solid fa-check"></i>
+                Character building
             </div>
 
         </div>
@@ -1896,77 +2338,839 @@
 
 
 
+<!-- =========================================================
+     STUDENT MODAL
+========================================================= -->
+
+<div
+    class="modal"
+    id="studentModal">
+
+    <div class="modal-box student-modal">
+
+        <button
+            type="button"
+            class="modal-close"
+            onclick="closeModal('studentModal')">
+
+            &times;
+
+        </button>
+
+
+        <img
+            id="studentModalImage"
+            src="top-student-boy.png"
+            alt="Student">
+
+
+        <span class="modal-label">
+            Student Achievement
+        </span>
+
+
+        <h2 id="studentModalName">
+            Top Student
+        </h2>
+
+
+        <h4 id="studentModalAchievement">
+            Academic Achievement
+        </h4>
+
+
+        <p id="studentModalDescription">
+            Outstanding student performance.
+        </p>
+
+    </div>
+
+</div>
+
+
+
 <!-- =====================================================
-     GALLERY LIGHTBOX
+     ONLINE ADMISSION MODAL
 ===================================================== -->
 
-<div class="lightbox" id="galleryLightbox">
+<div
+    class="modal"
+    id="admissionModal">
 
-    <button class="lightbox-close"
-            onclick="closeGallery()">
-        ×
+    <div class="modal-box admission-form-modal">
+
+
+        <button
+            type="button"
+            class="modal-close"
+            onclick="closeModal('admissionModal')">
+
+            &times;
+
+        </button>
+
+
+
+        <div class="admission-form-header">
+
+
+            <img
+                src="logo.png"
+                alt="Swat Model School Logo"
+                class="modal-logo">
+
+
+            <span class="modal-label">
+                Admissions Open
+            </span>
+
+
+            <h2>
+                Online Admission Application
+            </h2>
+
+
+            <p>
+
+                Please complete the form below.
+                Our school administration will contact
+                you after reviewing the application.
+
+            </p>
+
+        </div>
+
+
+
+        <!-- =================================================
+             WEB3FORMS
+        ================================================== -->
+
+        <form
+            id="admissionForm"
+            action="https://api.web3forms.com/submit"
+            method="POST">
+
+
+            <!-- WEB3FORMS ACCESS KEY -->
+
+            <input
+                type="hidden"
+                name="access_key"
+                value="6a6313d5-64c8-401a-937f-c307796125cd">
+
+
+            <input
+                type="hidden"
+                name="subject"
+                value="New Online Admission Application - Swat Model School">
+
+
+            <input
+                type="hidden"
+                name="from_name"
+                value="Swat Model School Website">
+
+
+            <!-- ANTI-SPAM -->
+
+            <input
+                type="checkbox"
+                name="botcheck"
+                style="display:none"
+                tabindex="-1"
+                autocomplete="off">
+
+
+
+            <!-- =================================================
+                 SECTION 01
+            ================================================== -->
+
+            <div class="form-section-title">
+
+                <span>
+                    01
+                </span>
+
+                <div>
+
+                    <strong>
+                        Student Information
+                    </strong>
+
+                    <small>
+                        Basic information about the student
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="form-grid">
+
+
+                <div class="form-group full">
+
+                    <label>
+                        Student Full Name *
+                    </label>
+
+                    <input
+                        type="text"
+                        name="Student Name"
+                        placeholder="Enter student's full name"
+                        required>
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label>
+                        Date of Birth *
+                    </label>
+
+                    <input
+                        type="date"
+                        name="Date of Birth"
+                        required>
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label>
+                        Gender *
+                    </label>
+
+                    <select
+                        name="Gender"
+                        required>
+
+                        <option value="">
+                            Select Gender
+                        </option>
+
+                        <option value="Male">
+                            Male
+                        </option>
+
+                        <option value="Female">
+                            Female
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label>
+                        Applying For Class *
+                    </label>
+
+                    <select
+                        name="Applying Class"
+                        required>
+
+                        <option value="">
+                            Select Class
+                        </option>
+
+                        <option value="Nursery">
+                            Nursery
+                        </option>
+
+                        <option value="Prep">
+                            Prep
+                        </option>
+
+                        <option value="Grade 1">
+                            Grade 1
+                        </option>
+
+                        <option value="Grade 2">
+                            Grade 2
+                        </option>
+
+                        <option value="Grade 3">
+                            Grade 3
+                        </option>
+
+                        <option value="Grade 4">
+                            Grade 4
+                        </option>
+
+                        <option value="Grade 5">
+                            Grade 5
+                        </option>
+
+                        <option value="Grade 6">
+                            Grade 6
+                        </option>
+
+                        <option value="Grade 7">
+                            Grade 7
+                        </option>
+
+                        <option value="Grade 8">
+                            Grade 8
+                        </option>
+
+                        <option value="Grade 9">
+                            Grade 9
+                        </option>
+
+                        <option value="Grade 10">
+                            Grade 10
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label>
+                        Previous Class
+                    </label>
+
+                    <input
+                        type="text"
+                        name="Previous Class"
+                        placeholder="e.g. Grade 5">
+
+                </div>
+
+
+
+                <div class="form-group full">
+
+                    <label>
+                        Previous School
+                    </label>
+
+                    <input
+                        type="text"
+                        name="Previous School"
+                        placeholder="Name of previous school">
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =================================================
+                 SECTION 02
+            ================================================== -->
+
+            <div class="form-section-title">
+
+                <span>
+                    02
+                </span>
+
+                <div>
+
+                    <strong>
+                        Parent / Guardian Information
+                    </strong>
+
+                    <small>
+                        Contact details of parent or guardian
+                    </small>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="form-grid">
+
+
+                <div class="form-group">
+
+                    <label>
+                        Father's Name *
+                    </label>
+
+                    <input
+                        type="text"
+                        name="Father Name"
+                        placeholder="Father's full name"
+                        required>
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label>
+                        Father's CNIC
+                    </label>
+
+                    <input
+                        type="text"
+                        name="Father CNIC"
+                        placeholder="XXXXX-XXXXXXX-X">
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label>
+                        Father's Occupation
+                    </label>
+
+                    <input
+                        type="text"
+                        name="Father Occupation"
+                        placeholder="Occupation">
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label>
+                        Mobile Number *
+                    </label>
+
+                    <input
+                        type="tel"
+                        name="Mobile Number"
+                        placeholder="03XX-XXXXXXX"
+                        required>
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label>
+                        WhatsApp Number
+                    </label>
+
+                    <input
+                        type="tel"
+                        name="WhatsApp Number"
+                        placeholder="03XX-XXXXXXX">
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label>
+                        Email Address
+                    </label>
+
+                    <input
+                        type="email"
+                        name="Parent Email"
+                        placeholder="parent@example.com">
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =================================================
+                 SECTION 03
+            ================================================== -->
+
+            <div class="form-section-title">
+
+                <span>
+                    03
+                </span>
+
+                <div>
+
+                    <strong>
+                        Address Information
+                    </strong>
+
+                    <small>
+                        Student's residential information
+                    </small>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="form-grid">
+
+
+                <div class="form-group">
+
+                    <label>
+                        Village / Area *
+                    </label>
+
+                    <input
+                        type="text"
+                        name="Village Area"
+                        placeholder="Village / Area"
+                        required>
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label>
+                        Tehsil
+                    </label>
+
+                    <input
+                        type="text"
+                        name="Tehsil"
+                        placeholder="Tehsil">
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label>
+                        District
+                    </label>
+
+                    <input
+                        type="text"
+                        name="District"
+                        value="Swat">
+
+                </div>
+
+
+
+                <div class="form-group full">
+
+                    <label>
+                        Complete Address *
+                    </label>
+
+                    <textarea
+                        name="Complete Address"
+                        rows="3"
+                        placeholder="Enter complete residential address"
+                        required></textarea>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =================================================
+                 SECTION 04
+            ================================================== -->
+
+            <div class="form-section-title">
+
+                <span>
+                    04
+                </span>
+
+                <div>
+
+                    <strong>
+                        Academic Information
+                    </strong>
+
+                    <small>
+                        Previous academic information
+                    </small>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="form-grid">
+
+
+                <div class="form-group">
+
+                    <label>
+                        Previous Result / Marks
+                    </label>
+
+                    <input
+                        type="text"
+                        name="Previous Result"
+                        placeholder="e.g. 450 / 500">
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label>
+                        Academic Year
+                    </label>
+
+                    <input
+                        type="text"
+                        name="Academic Year"
+                        placeholder="e.g. 2026">
+
+                </div>
+
+
+
+                <div class="form-group full">
+
+                    <label>
+                        Additional Information
+                    </label>
+
+                    <textarea
+                        name="Additional Information"
+                        rows="4"
+                        placeholder="Any additional information you would like the school to know..."></textarea>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- =================================================
+                 DECLARATION
+            ================================================== -->
+
+            <div class="admission-declaration">
+
+                <label>
+
+                    <input
+                        type="checkbox"
+                        name="Declaration"
+                        value="I confirm that the information provided is correct."
+                        required>
+
+                    <span>
+
+                        I confirm that the information provided
+                        in this application is correct and complete.
+
+                    </span>
+
+                </label>
+
+            </div>
+
+
+
+            <!-- RESULT -->
+
+            <div
+                id="admissionResult"
+                class="admission-result"
+                aria-live="polite">
+            </div>
+
+
+
+            <!-- SUBMIT -->
+
+            <button
+                type="submit"
+                class="admission-submit"
+                id="admissionSubmit">
+
+
+                <span class="submit-text">
+
+                    Submit Admission Application
+
+                </span>
+
+
+                <span class="submit-loading">
+
+                    Submitting...
+
+                </span>
+
+
+            </button>
+
+
+
+            <p class="form-security-note">
+
+                <i class="fa-solid fa-lock"></i>
+
+                Your information will be sent securely
+                to Swat Model School administration.
+
+            </p>
+
+
+        </form>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================================================
+     LIGHTBOX
+========================================================= -->
+
+<div
+    class="lightbox"
+    id="lightbox"
+    onclick="closeLightbox()">
+
+
+    <button
+        type="button"
+        class="lightbox-close"
+        onclick="closeLightbox(event)">
+
+        &times;
+
     </button>
 
-    <img id="lightboxImage"
-         src=""
-         alt="School Gallery">
+
+    <img
+        id="lightboxImage"
+        src=""
+        alt="Gallery Image"
+        onclick="event.stopPropagation()">
 
 </div>
 
 
 
-<!-- =====================================================
-     NOTICE POPUP
-===================================================== -->
+<!-- =========================================================
+     NOTICE BUTTON
+========================================================= -->
 
-<div class="notice-button"
-     onclick="openModal('noticeModal')">
+<button
+    type="button"
+    class="notice-button"
+    onclick="openModal('noticeModal')">
 
-    <span>🔔</span>
+    <i class="fa-solid fa-bell"></i>
 
-    <small>
-        Notice
-    </small>
+    Notice
 
-</div>
+</button>
 
 
-<div class="modal" id="noticeModal">
 
-    <div class="modal-overlay"
-         onclick="closeModal('noticeModal')"></div>
+<!-- =========================================================
+     NOTICE MODAL
+========================================================= -->
+
+<div
+    class="modal"
+    id="noticeModal">
 
     <div class="modal-box notice-modal">
 
-        <button class="modal-close"
-                onclick="closeModal('noticeModal')">
-            ×
+
+        <button
+            type="button"
+            class="modal-close"
+            onclick="closeModal('noticeModal')">
+
+            &times;
+
         </button>
 
+
         <div class="notice-icon">
-            🔔
+
+            <i class="fa-solid fa-bell"></i>
+
         </div>
 
+
         <span class="modal-label">
-            SCHOOL NOTICE
+            School Notice
         </span>
 
+
         <h2>
-            Welcome to SMS
+            Important
+            <span>Notice</span>
         </h2>
 
+
         <p>
-            For latest admission information, fee details
-            and school updates, please contact the school
-            administration.
+
+            Admission applications are currently open.
+            For additional information, please contact
+            the school administration.
+
         </p>
 
-        <a href="tel:03452077262"
-           class="gold-btn">
 
-            Contact School
+        <div class="admission-contact">
 
-        </a>
+            <strong>
+                Contact School
+            </strong>
+
+            <a href="tel:+923452077262">
+
+                0345-2077262
+
+            </a>
+
+        </div>
+
+
+        <button
+            type="button"
+            class="btn btn-primary"
+            onclick="
+                closeModal('noticeModal');
+                openModal('admissionModal');
+            ">
+
+            Apply Online
+
+            <i class="fa-solid fa-arrow-right"></i>
+
+        </button>
+
 
     </div>
 
@@ -1974,11 +3178,13 @@
 
 
 
-<!-- =====================================================
-     JAVASCRIPT
-===================================================== -->
+<!-- =========================================================
+     WEBSITE JAVASCRIPT
+========================================================= -->
 
 <script src="script.js"></script>
 
+
 </body>
+
 </html>
