@@ -1,7 +1,8 @@
-```javascript
 /* Swat Model School — reliable interactions */
 (function () {
   'use strict';
+
+  document.documentElement.classList.add('js-enabled');
 
   document.addEventListener('DOMContentLoaded', function () {
     initPreloader();
@@ -156,7 +157,9 @@
       return;
     }
 
-    var observer = new IntersectionObserver(
+    var observer;
+    try {
+      observer = new IntersectionObserver(
       function (entries) {
         entries.forEach(function (entry) {
           if (entry.isIntersecting) {
@@ -168,7 +171,13 @@
       {
         threshold: 0.1
       }
-    );
+      );
+    } catch (error) {
+      elements.forEach(function (el) {
+        el.classList.add('visible');
+      });
+      return;
+    }
 
     elements.forEach(function (el) {
       observer.observe(el);
@@ -559,4 +568,3 @@ console.log(
   '%cSwat Model School',
   'color:#1769e0;font-size:20px;font-weight:bold;'
 );
-```
