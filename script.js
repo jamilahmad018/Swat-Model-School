@@ -1383,6 +1383,69 @@ console.log(
 console.log(
     "Website loaded successfully."
 );
+```javascript
+/* Same-page campus switcher */
+function switchCampus(campus) {
+  const isGirls = campus === 'girls';
+
+  document.querySelectorAll('.campus-option, .campus-switch').forEach(button => {
+    button.classList.toggle('active', button.dataset.campus === campus);
+    button.setAttribute('aria-pressed', String(button.dataset.campus === campus));
+  });
+
+  const title = document.getElementById('campusSelectedTitle');
+  const description = document.getElementById('campusSelectedDescription');
+  const badge = document.getElementById('heroBadgeText');
+  const heroImage = document.querySelector('.hero-bg img');
+  const heroHeading = document.querySelector('.hero-content h1');
+  const admissionCampus = document.getElementById('admissionCampus');
+
+  if (title) {
+    title.textContent = isGirls ? 'Girls Campus' : 'Boys Campus';
+  }
+
+  if (description) {
+    description.textContent = isGirls
+      ? 'Explore the Girls Campus of Swat Model School, with classes from Nursery to Class 10.'
+      : 'Explore the Boys Campus of Swat Model School, with classes from Nursery to Class 10.';
+  }
+
+  if (badge) {
+    badge.textContent = isGirls ? 'Girls Campus' : 'Boys Campus';
+  }
+
+  if (heroImage) {
+    heroImage.src = isGirls
+      ? 'school-building-1.png'
+      : 'school-building-2.png';
+
+    heroImage.alt = isGirls
+      ? 'Swat Model School Girls Campus'
+      : 'Swat Model School Boys Campus';
+  }
+
+  if (heroHeading) {
+    heroHeading.innerHTML = isGirls
+      ? 'Building <span>Bright Futures</span> Through Education'
+      : 'Inspiring <span>Future Leaders</span> Through Education';
+  }
+
+  if (admissionCampus) {
+    admissionCampus.value = isGirls ? 'Girls Campus' : 'Boys Campus';
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const select = document.getElementById('admissionCampus');
+
+  if (select) {
+    select.addEventListener('change', () => {
+      switchCampus(
+        select.value.startsWith('Boys') ? 'boys' : 'girls'
+      );
+    });
+  }
+});
 
 
 /* =========================================================
