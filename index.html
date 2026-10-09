@@ -229,8 +229,9 @@
                 Home
 
             </a>
-            <a href="girls-campus.html" class="nav-link">Girls Campus</a>
-            <a href="boys-campus.html" class="nav-link">Boys Campus</a>
+            <button type="button" class="nav-link campus-switch active" data-campus="girls" onclick="switchCampus('girls')">Girls Campus</button>
+            <button type="button" class="nav-link campus-switch" data-campus="boys" onclick="switchCampus('boys')">Boys Campus</button>
+
 
             <a
                 href="#about"
@@ -320,19 +321,13 @@
 
     <div class="container hero-content">
 
-        <div class="hero-badge">
-
-            <span></span>
-
-            Admissions Open
-
-        </div>
+        <div class="hero-badge" id="heroCampusBadge"><span></span><span id="heroBadgeText">Admissions Open</span></div>
 
 
         <h1>
 
             Building
-            <span>Bright Futures</span>
+            <span id="heroBrightText">Bright Futures</span>
             Through Education
 
         </h1>
@@ -414,6 +409,35 @@
 </section>
 
 
+
+
+<!-- SAME-PAGE CAMPUS SELECTOR -->
+<section class="campus-switcher-section" id="campusSwitcher">
+  <div class="container campus-switcher-inner">
+    <div class="campus-switcher-heading">
+      <span class="section-label">CHOOSE YOUR CAMPUS</span>
+      <h2>Explore Our <span>Campuses</span></h2>
+      <p>Both campuses offer classes from Nursery to Class 10.</p>
+    </div>
+    <div class="campus-switcher-buttons">
+      <button type="button" class="campus-option active" data-campus="girls" onclick="switchCampus('girls')">
+        <i class="fa-solid fa-people-roof"></i><span><strong>Girls Campus</strong><small>Nursery – Class 10</small></span><i class="fa-solid fa-arrow-right campus-option-arrow"></i>
+      </button>
+      <button type="button" class="campus-option" data-campus="boys" onclick="switchCampus('boys')">
+        <i class="fa-solid fa-school"></i><span><strong>Boys Campus</strong><small>Nursery – Class 10</small></span><i class="fa-solid fa-arrow-right campus-option-arrow"></i>
+      </button>
+    </div>
+    <div class="campus-selected-info">
+      <span class="campus-selected-label">SELECTED CAMPUS</span>
+      <h3 id="campusSelectedTitle">Girls Campus</h3>
+      <p id="campusSelectedDescription">Explore the Girls Campus of Swat Model School, with classes from Nursery to Class 10.</p>
+      <div class="campus-selected-actions">
+        <a class="btn btn-primary" href="#academics">Explore Academics <i class="fa-solid fa-arrow-right"></i></a>
+        <button type="button" class="btn btn-outline-blue" onclick="openModal('admissionModal')">Apply for Admission</button>
+      </div>
+    </div>
+  </div>
+</section>
 
 <!-- =========================================================
      QUICK ACCESS
@@ -2452,6 +2476,15 @@
             id="admissionForm"
             action="https://api.web3forms.com/submit"
             method="POST">
+            <div class="form-section-title"><span>00</span><div><strong>Campus Selection</strong><small>Choose the campus for this application</small></div></div>
+            <div class="form-grid"><div class="form-group full">
+              <label for="admissionCampus">Applying to Campus *</label>
+              <select name="Campus" id="admissionCampus" required>
+                <option value="Girls Campus">Girls Campus</option>
+                <option value="Boys Campus">Boys Campus</option>
+              </select>
+            </div></div>
+
 
 
             <!-- WEB3FORMS ACCESS KEY -->
