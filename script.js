@@ -1,1453 +1,562 @@
-/* =========================================================
-   SWAT MODEL SCHOOL
-   COMPLETE WEBSITE JAVASCRIPT
-========================================================= */
+```javascript
+/* Swat Model School — reliable interactions */
+(function () {
+  'use strict';
 
-
-/* =========================================================
-   DOM READY
-========================================================= */
-
-document.addEventListener("DOMContentLoaded", function () {
-
+  document.addEventListener('DOMContentLoaded', function () {
     initPreloader();
-
     initMobileMenu();
-
     initNavigation();
-
     initScrollReveal();
-
     initAdmissionForm();
-
     initKeyboardControls();
-
     initWelcomePopup();
+    initCampusSwitcher();
+    initGalleryFallbacks();
+  });
 
-});
-
-
-/* =========================================================
-   PRELOADER
-========================================================= */
-
-function initPreloader() {
-
-    const preloader =
-        document.getElementById("preloader");
-
+  /* PRELOADER */
+  function initPreloader() {
+    var preloader = document.getElementById('preloader');
     if (!preloader) return;
 
+    function hide() {
+      preloader.classList.add('hide');
+    }
 
-    window.addEventListener("load", function () {
-
-        setTimeout(function () {
-
-            preloader.classList.add("hide");
-
-        }, 400);
-
+    window.addEventListener('load', function () {
+      setTimeout(hide, 250);
     });
 
+    setTimeout(hide, 2200);
+  }
 
-    /*
-       Emergency fallback.
-       This prevents the website from remaining
-       stuck on the loading screen.
-    */
+  /* WELCOME POPUP */
+  function initWelcomePopup() {
+    var modal = document.getElementById('welcomeModal');
+    if (!modal) return;
 
-    setTimeout(function () {
-
-        preloader.classList.add("hide");
-
-    }, 2200);
-
-}
-
-
-/* =========================================================
-   WELCOME POPUP
-========================================================= */
-
-function initWelcomePopup() {
-
-    const welcomeModal =
-        document.getElementById("welcomeModal");
-
-    if (!welcomeModal) return;
-
-
-    /*
-       Show welcome popup only once per browser session.
-    */
-
-    const alreadyShown =
-        sessionStorage.getItem(
-            "smsWelcomeShown"
-        );
-
-
-    if (!alreadyShown) {
-
+    try {
+      if (!sessionStorage.getItem('smsWelcomeShown')) {
         setTimeout(function () {
-
-            openModal("welcomeModal");
-
-            sessionStorage.setItem(
-                "smsWelcomeShown",
-                "true"
-            );
-
+          openModal('welcomeModal');
+          sessionStorage.setItem('smsWelcomeShown', 'true');
         }, 2500);
-
+      }
+    } catch (e) {
+      /* Storage may be unavailable; page remains usable. */
     }
+  }
 
-}
+  /* MOBILE MENU */
+  function initMobileMenu() {
+    var nav = document.getElementById('mainNav');
+    var button = document.querySelector('.mobile-menu');
 
+    if (!nav || !button) return;
 
-/* =========================================================
-   MOBILE MENU
-========================================================= */
+    button.setAttribute('aria-expanded', 'false');
+    button.setAttribute('aria-controls', 'mainNav');
 
-function initMobileMenu() {
+    nav.querySelectorAll('a[href^="#"]').forEach(function (link) {
+      link.addEventListener('click', closeMobileMenu);
+    });
+  }
 
-    const nav =
-        document.getElementById("mainNav");
+  function closeMobileMenu() {
+    var nav = document.getElementById('mainNav');
+    var button = document.querySelector('.mobile-menu');
 
-    const menuButton =
-        document.querySelector(".mobile-menu");
+    if (nav) nav.classList.remove('show');
 
+    if (button) {
+      button.setAttribute('aria-expanded', 'false');
 
-    if (!nav || !menuButton) return;
+      var icon = button.querySelector('i');
 
+      if (icon) {
+        icon.classList.remove('fa-xmark');
+        icon.classList.add('fa-bars');
+      }
+    }
+  }
 
-    menuButton.addEventListener(
-        "click",
-        function () {
+  /* MOBILE MENU TOGGLE */
+  window.toggleMenu = function () {
+    var nav = document.getElementById('mainNav');
+    var button = document.querySelector('.mobile-menu');
 
-            nav.classList.toggle("show");
+    if (!nav) return;
 
+    var open = !nav.classList.contains('show');
+    nav.classList.toggle('show', open);
 
-            const icon =
-                menuButton.querySelector("i");
+    if (button) {
+      button.setAttribute('aria-expanded', String(open));
 
+      var icon = button.querySelector('i');
 
-            if (!icon) return;
+      if (icon) {
+        icon.classList.toggle('fa-bars', !open);
+        icon.classList.toggle('fa-xmark', open);
+      }
+    }
+  };
 
-
-            if (nav.classList.contains("show")) {
-
-                icon.classList.remove(
-                    "fa-bars"
-                );
-
-                icon.classList.add(
-                    "fa-xmark"
-                );
-
-            } else {
-
-                icon.classList.remove(
-                    "fa-xmark"
-                );
-
-                icon.classList.add(
-                    "fa-bars"
-                );
-
-            }
-
-        }
+  /* ACTIVE NAVIGATION */
+  function initNavigation() {
+    var sections = Array.prototype.slice.call(
+      document.querySelectorAll('section[id]')
     );
 
+    var links = document.querySelectorAll(
+      '#mainNav .nav-link[href^="#"]'
+    );
 
-    /*
-       Close menu when clicking navigation link.
-    */
+    if (!sections.length || !links.length) return;
 
-    const links =
-        nav.querySelectorAll(
-            ".nav-link"
+    function update() {
+      var y = window.scrollY + 150;
+      var current = 'home';
+
+      sections.forEach(function (section) {
+        if (
+          y >= section.offsetTop &&
+          y < section.offsetTop + section.offsetHeight
+        ) {
+          current = section.id;
+        }
+      });
+
+      links.forEach(function (link) {
+        link.classList.toggle(
+          'active',
+          link.getAttribute('href') === '#' + current
         );
+      });
+    }
 
-
-    links.forEach(function (link) {
-
-        link.addEventListener(
-            "click",
-            function () {
-
-                closeMobileMenu();
-
-            }
-        );
-
+    window.addEventListener('scroll', update, {
+      passive: true
     });
 
-}
-
-
-/* =========================================================
-   CLOSE MOBILE MENU
-========================================================= */
-
-function closeMobileMenu() {
-
-    const nav =
-        document.getElementById("mainNav");
-
-    const menuButton =
-        document.querySelector(".mobile-menu");
-
-
-    if (!nav) return;
-
-
-    nav.classList.remove("show");
-
-
-    if (menuButton) {
-
-        const icon =
-            menuButton.querySelector("i");
-
-
-        if (icon) {
-
-            icon.classList.remove(
-                "fa-xmark"
-            );
-
-            icon.classList.add(
-                "fa-bars"
-            );
-
-        }
-
-    }
-
-}
-
-
-/* =========================================================
-   TOGGLE MENU
-   Used directly by HTML onclick
-========================================================= */
-
-function toggleMenu() {
-
-    const nav =
-        document.getElementById("mainNav");
-
-    const menuButton =
-        document.querySelector(".mobile-menu");
-
-
-    if (!nav) return;
-
-
-    nav.classList.toggle("show");
-
-
-    if (menuButton) {
-
-        const icon =
-            menuButton.querySelector("i");
-
-
-        if (icon) {
-
-            if (
-                nav.classList.contains(
-                    "show"
-                )
-            ) {
-
-                icon.classList.remove(
-                    "fa-bars"
-                );
-
-                icon.classList.add(
-                    "fa-xmark"
-                );
-
-            } else {
-
-                icon.classList.remove(
-                    "fa-xmark"
-                );
-
-                icon.classList.add(
-                    "fa-bars"
-                );
-
-            }
-
-        }
-
-    }
-
-}
-
-
-/* =========================================================
-   NAVIGATION
-========================================================= */
-
-function initNavigation() {
-
-    const sections =
-        document.querySelectorAll(
-            "section[id]"
-        );
-
-    const navLinks =
-        document.querySelectorAll(
-            ".nav-link"
-        );
-
-
-    if (!sections.length || !navLinks.length) {
-        return;
-    }
-
-
-    function updateActiveNavigation() {
-
-        const scrollPosition =
-            window.scrollY + 160;
-
-
-        let currentSection =
-            "home";
-
-
-        sections.forEach(
-            function (section) {
-
-                const top =
-                    section.offsetTop;
-
-                const height =
-                    section.offsetHeight;
-
-                const id =
-                    section.getAttribute(
-                        "id"
-                    );
-
-
-                if (
-                    scrollPosition >= top &&
-                    scrollPosition <
-                        top + height
-                ) {
-
-                    currentSection = id;
-
-                }
-
-            }
-        );
-
-
-        navLinks.forEach(
-            function (link) {
-
-                link.classList.remove(
-                    "active"
-                );
-
-
-                const href =
-                    link.getAttribute(
-                        "href"
-                    );
-
-
-                if (
-                    href ===
-                    "#" + currentSection
-                ) {
-
-                    link.classList.add(
-                        "active"
-                    );
-
-                }
-
-            }
-        );
-
-    }
-
-
-    window.addEventListener(
-        "scroll",
-        updateActiveNavigation
-    );
-
-
-    updateActiveNavigation();
-
-}
-
-
-/* =========================================================
-   SCROLL REVEAL
-========================================================= */
-
-function initScrollReveal() {
-
-    const elements =
-        document.querySelectorAll(
-            ".scroll-reveal"
-        );
-
+    update();
+  }
+
+  /* SCROLL REVEAL ANIMATIONS */
+  function initScrollReveal() {
+    var elements = document.querySelectorAll('.scroll-reveal');
 
     if (!elements.length) return;
 
+    if (!('IntersectionObserver' in window)) {
+      elements.forEach(function (el) {
+        el.classList.add('visible');
+      });
+      return;
+    }
 
-    /*
-       Use IntersectionObserver where supported.
-    */
+    var observer = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.1
+      }
+    );
+
+    elements.forEach(function (el) {
+      observer.observe(el);
+    });
+  }
+
+  /* OPEN MODAL */
+  window.openModal = function (id) {
+    var modal = document.getElementById(id);
+
+    if (!modal) return;
+
+    modal.classList.add('show');
+    document.body.classList.add('modal-open');
+
+    var close = modal.querySelector('.modal-close');
+
+    if (close) {
+      setTimeout(function () {
+        close.focus();
+      }, 80);
+    }
+  };
+
+  /* CLOSE MODAL */
+  window.closeModal = function (id) {
+    var modal = document.getElementById(id);
+
+    if (modal) {
+      modal.classList.remove('show');
+    }
 
     if (
-        "IntersectionObserver"
-        in window
+      !document.querySelector('.modal.show') &&
+      !document.querySelector('.lightbox.show')
     ) {
-
-        const observer =
-            new IntersectionObserver(
-                function (
-                    entries,
-                    observer
-                ) {
-
-                    entries.forEach(
-                        function (entry) {
-
-                            if (
-                                entry.isIntersecting
-                            ) {
-
-                                entry.target.classList.add(
-                                    "visible"
-                                );
-
-                                observer.unobserve(
-                                    entry.target
-                                );
-
-                            }
-
-                        }
-                    );
-
-                },
-                {
-                    threshold: 0.12
-                }
-            );
-
-
-        elements.forEach(
-            function (element) {
-
-                observer.observe(
-                    element
-                );
-
-            }
-        );
-
-
-    } else {
-
-        /*
-           Fallback for older browsers.
-        */
-
-        elements.forEach(
-            function (element) {
-
-                element.classList.add(
-                    "visible"
-                );
-
-            }
-        );
-
+      document.body.classList.remove('modal-open');
     }
+  };
 
-}
+  /* CLOSE MODAL WHEN CLICKING OUTSIDE */
+  document.addEventListener('click', function (event) {
+    if (
+      event.target.classList &&
+      event.target.classList.contains('modal')
+    ) {
+      event.target.classList.remove('show');
 
-
-/* =========================================================
-   OPEN MODAL
-========================================================= */
-
-function openModal(modalId) {
-
-    const modal =
-        document.getElementById(
-            modalId
-        );
-
-
-    if (!modal) return;
-
-
-    modal.classList.add("show");
-
-
-    document.body.classList.add(
-        "modal-open"
-    );
-
-
-    /*
-       Move focus to close button
-       for accessibility.
-    */
-
-    const closeButton =
-        modal.querySelector(
-            ".modal-close"
-        );
-
-
-    if (closeButton) {
-
-        setTimeout(
-            function () {
-
-                closeButton.focus();
-
-            },
-            100
-        );
-
+      if (
+        !document.querySelector('.modal.show') &&
+        !document.querySelector('.lightbox.show')
+      ) {
+        document.body.classList.remove('modal-open');
+      }
     }
+  });
 
-}
-
-
-/* =========================================================
-   CLOSE MODAL
-========================================================= */
-
-function closeModal(modalId) {
-
-    const modal =
-        document.getElementById(
-            modalId
-        );
-
-
-    if (!modal) return;
-
-
-    modal.classList.remove(
-        "show"
-    );
-
-
-    /*
-       Check whether another modal
-       is still open.
-    */
-
-    const remainingModal =
-        document.querySelector(
-            ".modal.show"
-        );
-
-
-    if (!remainingModal) {
-
-        document.body.classList.remove(
-            "modal-open"
-        );
-
-    }
-
-}
-
-
-/* =========================================================
-   MODAL BACKDROP CLICK
-========================================================= */
-
-document.addEventListener(
-    "click",
-    function (event) {
-
-        if (
-            event.target.classList.contains(
-                "modal"
-            )
-        ) {
-
-            const modal =
-                event.target;
-
-
-            modal.classList.remove(
-                "show"
-            );
-
-
-            const remaining =
-                document.querySelector(
-                    ".modal.show"
-                );
-
-
-            if (!remaining) {
-
-                document.body.classList.remove(
-                    "modal-open"
-                );
-
-            }
-
-        }
-
-    }
-);
-
-
-/* =========================================================
-   TEACHER PROFILE
-========================================================= */
-
-function openTeacher(
+  /* TEACHER PROFILE MODAL */
+  window.openTeacher = function (
     name,
     role,
     description,
     icon
-) {
+  ) {
+    setText('teacherModalName', name);
+    setText('teacherModalRole', role);
+    setText('teacherModalDescription', description);
+    setText('teacherModalDepartment', role);
 
-    const nameElement =
-        document.getElementById(
-            "teacherModalName"
-        );
+    var iconEl = document.getElementById('teacherModalIcon');
 
-    const roleElement =
-        document.getElementById(
-            "teacherModalRole"
-        );
-
-    const descriptionElement =
-        document.getElementById(
-            "teacherModalDescription"
-        );
-
-    const iconElement =
-        document.getElementById(
-            "teacherModalIcon"
-        );
-
-    const departmentElement =
-        document.getElementById(
-            "teacherModalDepartment"
-        );
-
-
-    if (nameElement) {
-
-        nameElement.textContent =
-            name;
-
+    if (iconEl) {
+      iconEl.className =
+        'fa-solid ' + (icon || 'fa-chalkboard-user');
     }
 
+    openModal('teacherModal');
+  };
 
-    if (roleElement) {
-
-        roleElement.textContent =
-            role;
-
-    }
-
-
-    if (descriptionElement) {
-
-        descriptionElement.textContent =
-            description;
-
-    }
-
-
-    if (departmentElement) {
-
-        departmentElement.textContent =
-            role;
-
-    }
-
-
-    if (iconElement) {
-
-        iconElement.className =
-            "fa-solid " + icon;
-
-    }
-
-
-    openModal(
-        "teacherModal"
-    );
-
-}
-
-
-/* =========================================================
-   STUDENT PROFILE
-========================================================= */
-
-function openStudent(
+  /* TOP STUDENT MODAL */
+  window.openStudent = function (
     image,
     name,
     achievement,
     description
-) {
+  ) {
+    var img = document.getElementById('studentModalImage');
 
-    const imageElement =
-        document.getElementById(
-            "studentModalImage"
-        );
-
-    const nameElement =
-        document.getElementById(
-            "studentModalName"
-        );
-
-    const achievementElement =
-        document.getElementById(
-            "studentModalAchievement"
-        );
-
-    const descriptionElement =
-        document.getElementById(
-            "studentModalDescription"
-        );
-
-
-    if (imageElement) {
-
-        imageElement.src =
-            image;
-
+    if (img) {
+      img.src = image;
     }
 
+    setText('studentModalName', name);
+    setText('studentModalAchievement', achievement);
+    setText('studentModalDescription', description);
 
-    if (nameElement) {
+    openModal('studentModal');
+  };
 
-        nameElement.textContent =
-            name;
+  /* UPDATE TEXT SAFELY */
+  function setText(id, value) {
+    var el = document.getElementById(id);
 
+    if (el) {
+      el.textContent = value || '';
     }
-
-
-    if (achievementElement) {
-
-        achievementElement.textContent =
-            achievement;
-
-    }
-
-
-    if (descriptionElement) {
-
-        descriptionElement.textContent =
-            description;
-
-    }
-
-
-    openModal(
-        "studentModal"
-    );
-
-}
-
-
-/* =========================================================
-   GALLERY LIGHTBOX
-========================================================= */
-
-function openLightbox(
-    imageSource
-) {
-
-    const lightbox =
-        document.getElementById(
-            "lightbox"
-        );
-
-    const image =
-        document.getElementById(
-            "lightboxImage"
-        );
-
-
-    if (!lightbox || !image) {
-        return;
-    }
-
-
-    image.src =
-        imageSource;
-
-
-    lightbox.classList.add(
-        "show"
-    );
-
-
-    document.body.classList.add(
-        "modal-open"
-    );
-
-}
-
-
-/* =========================================================
-   CLOSE LIGHTBOX
-========================================================= */
-
-function closeLightbox(event) {
-
-    /*
-       Prevent the close button event
-       from behaving unexpectedly.
-    */
-
-    if (
-        event &&
-        typeof event.stopPropagation ===
-        "function"
-    ) {
-
-        event.stopPropagation();
-
-    }
-
-
-    const lightbox =
-        document.getElementById(
-            "lightbox"
-        );
-
-
-    if (!lightbox) return;
-
-
-    lightbox.classList.remove(
-        "show"
-    );
-
-
-    /*
-       Only unlock body if no normal
-       modal is currently open.
-    */
-
-    const normalModal =
-        document.querySelector(
-            ".modal.show"
-        );
-
-
-    if (!normalModal) {
-
-        document.body.classList.remove(
-            "modal-open"
-        );
-
-    }
-
-}
-
-
-/* =========================================================
-   KEYBOARD CONTROLS
-========================================================= */
-
-function initKeyboardControls() {
-
-    document.addEventListener(
-        "keydown",
-        function (event) {
-
-            /*
-               ESC closes modal/lightbox.
-            */
-
-            if (
-                event.key ===
-                "Escape"
-            ) {
-
-                const openModalElement =
-                    document.querySelector(
-                        ".modal.show"
-                    );
-
-
-                if (openModalElement) {
-
-                    openModalElement.classList.remove(
-                        "show"
-                    );
-
-                }
-
-
-                const lightbox =
-                    document.getElementById(
-                        "lightbox"
-                    );
-
-
-                if (lightbox) {
-
-                    lightbox.classList.remove(
-                        "show"
-                    );
-
-                }
-
-
-                document.body.classList.remove(
-                    "modal-open"
-                );
-
-
-                closeMobileMenu();
-
-            }
-
-        }
-    );
-
-}
-
-
-/* =========================================================
-   ONLINE ADMISSION FORM
-   WEB3FORMS
-========================================================= */
-
-function initAdmissionForm() {
-
-    const admissionForm =
-        document.getElementById(
-            "admissionForm"
-        );
-
-
-    const admissionResult =
-        document.getElementById(
-            "admissionResult"
-        );
-
-
-    const admissionSubmit =
-        document.getElementById(
-            "admissionSubmit"
-        );
-
-
-    if (
-        !admissionForm ||
-        !admissionResult ||
-        !admissionSubmit
-    ) {
-
-        return;
-
-    }
-
-
-    admissionForm.addEventListener(
-        "submit",
-        async function (event) {
-
-            event.preventDefault();
-
-
-            /*
-               Clear old result.
-            */
-
-            admissionResult.className =
-                "admission-result";
-
-            admissionResult.textContent =
-                "";
-
-
-            /*
-               Disable button.
-            */
-
-            admissionSubmit.disabled =
-                true;
-
-
-            const submitText =
-                admissionSubmit.querySelector(
-                    ".submit-text"
-                );
-
-
-            const submitLoading =
-                admissionSubmit.querySelector(
-                    ".submit-loading"
-                );
-
-
-            if (submitText) {
-
-                submitText.style.display =
-                    "none";
-
-            }
-
-
-            if (submitLoading) {
-
-                submitLoading.style.display =
-                    "inline";
-
-            }
-
-
-            try {
-
-                /*
-                   Collect form data.
-                */
-
-                const formData =
-                    new FormData(
-                        admissionForm
-                    );
-
-
-                /*
-                   Convert FormData to object.
-                */
-
-                const object =
-                    Object.fromEntries(
-                        formData.entries()
-                    );
-
-
-                /*
-                   Convert to JSON.
-                */
-
-                const json =
-                    JSON.stringify(
-                        object
-                    );
-
-
-                /*
-                   Send to Web3Forms.
-                */
-
-                const response =
-                    await fetch(
-                        "https://api.web3forms.com/submit",
-                        {
-
-                            method: "POST",
-
-                            headers: {
-
-                                "Content-Type":
-                                    "application/json",
-
-                                "Accept":
-                                    "application/json"
-
-                            },
-
-                            body: json
-
-                        }
-                    );
-
-
-                /*
-                   Read response.
-                */
-
-                const result =
-                    await response.json();
-
-
-                /*
-                   SUCCESS
-                */
-
-                if (
-                    response.ok &&
-                    result.success
-                ) {
-
-                    admissionResult.className =
-                        "admission-result success";
-
-
-                    admissionResult.innerHTML =
-
-                        "✓ <strong>" +
-                        "Application Submitted Successfully!" +
-                        "</strong><br>" +
-
-                        "Thank you for applying to " +
-                        "Swat Model School. " +
-
-                        "Our administration will " +
-                        "contact you soon.";
-
-
-                    /*
-                       Reset form.
-                    */
-
-                    admissionForm.reset();
-
-
-                    /*
-                       Keep success message
-                       visible for a few seconds.
-                    */
-
-                    setTimeout(
-                        function () {
-
-                            closeModal(
-                                "admissionModal"
-                            );
-
-
-                            admissionResult.className =
-                                "admission-result";
-
-
-                            admissionResult.textContent =
-                                "";
-
-
-                        },
-                        6000
-                    );
-
-
-                } else {
-
-                    /*
-                       ERROR FROM WEB3FORMS
-                    */
-
-                    admissionResult.className =
-                        "admission-result error";
-
-
-                    admissionResult.textContent =
-                        result.message ||
-                        "Something went wrong. " +
-                        "Please try again.";
-
-                }
-
-
-            } catch (error) {
-
-                /*
-                   NETWORK / INTERNET ERROR
-                */
-
-                console.error(
-                    "Admission Form Error:",
-                    error
-                );
-
-
-                admissionResult.className =
-                    "admission-result error";
-
-
-                admissionResult.textContent =
-                    "Unable to submit the application. " +
-                    "Please check your internet connection " +
-                    "and try again.";
-
-            }
-
-
-            /*
-               Enable submit button again.
-            */
-
-            admissionSubmit.disabled =
-                false;
-
-
-            if (submitText) {
-
-                submitText.style.display =
-                    "inline";
-
-            }
-
-
-            if (submitLoading) {
-
-                submitLoading.style.display =
-                    "none";
-
-            }
-
-        }
-    );
-
-}
-
-
-/* =========================================================
-   PHONE NUMBER HELP
-========================================================= */
-
-document.addEventListener(
-    "click",
-    function (event) {
-
-        const target =
-            event.target.closest(
-                'a[href^="tel:"]'
-            );
-
-
-        if (!target) return;
-
-
-        /*
-           Allow normal telephone behavior.
-           This section exists mainly for future
-           analytics or tracking.
-        */
-
-    }
-);
-
-
-/* =========================================================
-   WHATSAPP LINK
-========================================================= */
-
-document.addEventListener(
-    "click",
-    function (event) {
-
-        const whatsapp =
-            event.target.closest(
-                'a[href*="wa.me"]'
-            );
-
-
-        if (!whatsapp) return;
-
-
-        /*
-           WhatsApp links naturally open
-           in a new tab because the HTML
-           contains target="_blank".
-        */
-
-    }
-);
-
-
-/* =========================================================
-   SMOOTH INTERNAL LINKS
-========================================================= */
-
-document.addEventListener(
-    "click",
-    function (event) {
-
-        const link =
-            event.target.closest(
-                'a[href^="#"]'
-            );
-
-
-        if (!link) return;
-
-
-        const targetId =
-            link.getAttribute(
-                "href"
-            );
-
-
-        if (
-            !targetId ||
-            targetId === "#"
-        ) {
-
-            return;
-
-        }
-
-
-        const target =
-            document.querySelector(
-                targetId
-            );
-
-
-        if (!target) return;
-
-
-        /*
-           Let browser handle normal
-           smooth scrolling through CSS.
-        */
-
-        closeMobileMenu();
-
-    }
-);
-
-
-/* =========================================================
-   PREVENT FORM DOUBLE SUBMISSION
-========================================================= */
-
-window.addEventListener(
-    "beforeunload",
-    function () {
-
-        /*
-           Nothing required here currently.
-           Reserved for future form protection.
-        */
-
-    }
-);
-
-
-/* =========================================================
-   IMAGE ERROR HANDLING
-========================================================= */
-
-document.addEventListener(
-    "error",
-    function (event) {
-
-        if (
-            event.target &&
-            event.target.tagName ===
-            "IMG"
-        ) {
-
-            event.target.classList.add(
-                "image-load-error"
-            );
-
-        }
-
-    },
-    true
-);
-
-
-/* =========================================================
-   CONSOLE MESSAGE
-========================================================= */
-
-console.log(
-    "%cSwat Model School",
-    "color:#1769e0;font-size:20px;font-weight:bold;"
-);
-
-console.log(
-    "Website loaded successfully."
-);
-```javascript
-/* Same-page campus switcher */
-function switchCampus(campus) {
-  const isGirls = campus === 'girls';
-
-  document.querySelectorAll('.campus-option, .campus-switch').forEach(button => {
-    button.classList.toggle('active', button.dataset.campus === campus);
-    button.setAttribute('aria-pressed', String(button.dataset.campus === campus));
-  });
-
-  const title = document.getElementById('campusSelectedTitle');
-  const description = document.getElementById('campusSelectedDescription');
-  const badge = document.getElementById('heroBadgeText');
-  const heroImage = document.querySelector('.hero-bg img');
-  const heroHeading = document.querySelector('.hero-content h1');
-  const admissionCampus = document.getElementById('admissionCampus');
-
-  if (title) {
-    title.textContent = isGirls ? 'Girls Campus' : 'Boys Campus';
   }
 
-  if (description) {
-    description.textContent = isGirls
-      ? 'Explore the Girls Campus of Swat Model School, with classes from Nursery to Class 10.'
-      : 'Explore the Boys Campus of Swat Model School, with classes from Nursery to Class 10.';
-  }
+  /* OPEN GALLERY LIGHTBOX */
+  window.openLightbox = function (src) {
+    var lightbox = document.getElementById('lightbox');
+    var image = document.getElementById('lightboxImage');
 
-  if (badge) {
-    badge.textContent = isGirls ? 'Girls Campus' : 'Boys Campus';
-  }
+    if (!lightbox || !image || !src) return;
 
-  if (heroImage) {
-    heroImage.src = isGirls
-      ? 'school-building-1.png'
-      : 'school-building-2.png';
+    image.src = src;
+    lightbox.classList.add('show');
+    document.body.classList.add('modal-open');
+  };
 
-    heroImage.alt = isGirls
-      ? 'Swat Model School Girls Campus'
-      : 'Swat Model School Boys Campus';
-  }
+  /* CLOSE GALLERY LIGHTBOX */
+  window.closeLightbox = function (event) {
+    if (event) {
+      event.stopPropagation();
+    }
 
-  if (heroHeading) {
-    heroHeading.innerHTML = isGirls
-      ? 'Building <span>Bright Futures</span> Through Education'
-      : 'Inspiring <span>Future Leaders</span> Through Education';
-  }
+    var lightbox = document.getElementById('lightbox');
 
-  if (admissionCampus) {
-    admissionCampus.value = isGirls ? 'Girls Campus' : 'Boys Campus';
-  }
-}
+    if (lightbox) {
+      lightbox.classList.remove('show');
+    }
 
-document.addEventListener('DOMContentLoaded', () => {
-  const select = document.getElementById('admissionCampus');
+    if (!document.querySelector('.modal.show')) {
+      document.body.classList.remove('modal-open');
+    }
+  };
 
-  if (select) {
-    select.addEventListener('change', () => {
-      switchCampus(
-        select.value.startsWith('Boys') ? 'boys' : 'girls'
-      );
+  /* KEYBOARD CONTROLS */
+  function initKeyboardControls() {
+    document.addEventListener('keydown', function (event) {
+      if (event.key !== 'Escape') return;
+
+      var modal = document.querySelector('.modal.show');
+
+      if (modal) {
+        modal.classList.remove('show');
+      }
+
+      var lightbox = document.getElementById('lightbox');
+
+      if (lightbox) {
+        lightbox.classList.remove('show');
+      }
+
+      document.body.classList.remove('modal-open');
+      closeMobileMenu();
     });
   }
-});
 
+  /* CAMPUS SWITCHER AND GALLERIES */
+  function initCampusSwitcher() {
+    var initial = 'girls';
 
-/* =========================================================
-   END OF SCRIPT
-========================================================= */
+    document.querySelectorAll(
+      '.campus-option[data-campus]'
+    ).forEach(function (button) {
+      button.addEventListener('click', function () {
+        window.switchCampus(button.dataset.campus);
+      });
+    });
+
+    var select = document.getElementById('admissionCampus');
+
+    if (select) {
+      select.addEventListener('change', function () {
+        window.switchCampus(
+          select.value.toLowerCase().indexOf('boys') === 0
+            ? 'boys'
+            : 'girls',
+          false
+        );
+      });
+    }
+
+    window.switchCampus = function (campus, updateSelect) {
+      campus = campus === 'boys' ? 'boys' : 'girls';
+
+      document.querySelectorAll(
+        '.campus-option[data-campus]'
+      ).forEach(function (button) {
+        var active = button.dataset.campus === campus;
+
+        button.classList.toggle('active', active);
+        button.setAttribute('aria-pressed', String(active));
+      });
+
+      /* Show the selected campus gallery */
+      document.querySelectorAll(
+        '[data-gallery-campus]'
+      ).forEach(function (panel) {
+        panel.hidden = panel.dataset.galleryCampus !== campus;
+      });
+
+      setText(
+        'campusSelectedTitle',
+        campus === 'girls' ? 'Girls Campus' : 'Boys Campus'
+      );
+
+      setText(
+        'campusSelectedDescription',
+        campus === 'girls'
+          ? 'Explore the Girls Campus of Swat Model School, with classes from Nursery to Class 10.'
+          : 'Explore the Boys Campus of Swat Model School, with classes from Nursery to Class 10.'
+      );
+
+      var badge = document.getElementById('heroBadgeText');
+
+      if (badge) {
+        badge.textContent =
+          campus === 'girls' ? 'Girls Campus' : 'Boys Campus';
+      }
+
+      var heroImage = document.querySelector('.hero-bg img');
+
+      if (heroImage) {
+        heroImage.src =
+          campus === 'girls'
+            ? 'school-building-1.png'
+            : 'school-building-2.png';
+
+        heroImage.alt =
+          'Swat Model School ' +
+          (campus === 'girls' ? 'Girls' : 'Boys') +
+          ' Campus';
+      }
+
+      var heroBright = document.getElementById('heroBrightText');
+
+      if (heroBright) {
+        heroBright.textContent =
+          campus === 'girls' ? 'Bright Futures' : 'Future Leaders';
+      }
+
+      if (select && updateSelect !== false) {
+        select.value =
+          campus === 'girls' ? 'Girls Campus' : 'Boys Campus';
+      }
+
+      var galleryTitle = document.querySelector(
+        '[data-gallery-campus="' +
+          campus +
+          '"] .campus-gallery-heading h3'
+      );
+
+      if (galleryTitle) {
+        galleryTitle.textContent =
+          campus === 'girls'
+            ? 'Girls Campus Gallery'
+            : 'Boys Campus Gallery';
+      }
+    };
+
+    window.switchCampus(initial);
+  }
+
+  /* FALLBACK FOR MISSING GALLERY PHOTOS */
+  function initGalleryFallbacks() {
+    document.querySelectorAll(
+      '.campus-gallery-item img[data-fallback]'
+    ).forEach(function (img) {
+      img.addEventListener('error', function () {
+        if (img.dataset.didFallback === '1') return;
+
+        img.dataset.didFallback = '1';
+        img.src = img.dataset.fallback;
+      });
+    });
+  }
+
+  /* ONLINE ADMISSION FORM — WEB3FORMS */
+  function initAdmissionForm() {
+    var form = document.getElementById('admissionForm');
+    var resultBox = document.getElementById('admissionResult');
+    var submit = document.getElementById('admissionSubmit');
+
+    if (!form || !resultBox || !submit) return;
+
+    form.addEventListener('submit', async function (event) {
+      event.preventDefault();
+
+      resultBox.className = 'admission-result';
+      resultBox.textContent = '';
+
+      submit.disabled = true;
+
+      var text = submit.querySelector('.submit-text');
+      var loading = submit.querySelector('.submit-loading');
+
+      if (text) {
+        text.style.display = 'none';
+      }
+
+      if (loading) {
+        loading.style.display = 'inline';
+      }
+
+      try {
+        var response = await fetch(
+          'https://api.web3forms.com/submit',
+          {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              'Accept': 'application/json'
+            },
+            body: JSON.stringify(
+              Object.fromEntries(
+                new FormData(form).entries()
+              )
+            )
+          }
+        );
+
+        var data = await response.json();
+
+        if (response.ok && data.success) {
+          resultBox.className =
+            'admission-result success';
+
+          resultBox.textContent =
+            'Application submitted successfully! Thank you. Our administration will contact you soon.';
+
+          form.reset();
+
+          setTimeout(function () {
+            closeModal('admissionModal');
+            resultBox.className = 'admission-result';
+            resultBox.textContent = '';
+          }, 6000);
+
+        } else {
+          resultBox.className =
+            'admission-result error';
+
+          resultBox.textContent =
+            data.message ||
+            'Submission failed. Please try again or contact the school.';
+        }
+
+      } catch (error) {
+        resultBox.className =
+          'admission-result error';
+
+        resultBox.textContent =
+          'Unable to submit right now. Check your internet connection and try again.';
+
+      } finally {
+        submit.disabled = false;
+
+        if (text) {
+          text.style.display = 'inline';
+        }
+
+        if (loading) {
+          loading.style.display = 'none';
+        }
+      }
+    });
+  }
+
+  /* HANDLE IMAGE LOADING ERRORS */
+  document.addEventListener(
+    'error',
+    function (event) {
+      if (
+        event.target &&
+        event.target.tagName === 'IMG'
+      ) {
+        event.target.classList.add('image-load-error');
+      }
+    },
+    true
+  );
+
+})();
+
+console.log(
+  '%cSwat Model School',
+  'color:#1769e0;font-size:20px;font-weight:bold;'
+);
+```
