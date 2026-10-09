@@ -4011,21 +4011,26 @@ a {
 ========================================================= */
 
 .scroll-reveal {
-    /* Keep content visible by default if JavaScript fails to load. */
     opacity: 1;
-    transform: none;
-    transition: opacity 0.7s ease, transform 0.7s ease;
+    transform: translateY(0);
+
+    transition:
+        opacity 0.7s ease,
+        transform 0.7s ease;
+
 }
 
-/* Hide for animation only after JavaScript has initialized successfully. */
 .js-enabled .scroll-reveal:not(.visible) {
     opacity: 0;
     transform: translateY(25px);
 }
 
-.js-enabled .scroll-reveal.visible {
+.scroll-reveal.visible {
+
     opacity: 1;
+
     transform: translateY(0);
+
 }
 
 
