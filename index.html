@@ -229,7 +229,10 @@
                 Home
 
             </a>
-<a
+            <a href="girls-campus.html" class="nav-link">Girls Campus</a>
+            <a href="boys-campus.html" class="nav-link">Boys Campus</a>
+
+            <a
                 href="#about"
                 class="nav-link">
 
@@ -317,13 +320,19 @@
 
     <div class="container hero-content">
 
-        <div class="hero-badge" id="heroCampusBadge"><span></span><span id="heroBadgeText">Admissions Open</span></div>
+        <div class="hero-badge">
+
+            <span></span>
+
+            Admissions Open
+
+        </div>
 
 
         <h1>
 
             Building
-            <span id="heroBrightText">Bright Futures</span>
+            <span>Bright Futures</span>
             Through Education
 
         </h1>
@@ -405,35 +414,6 @@
 </section>
 
 
-
-
-<!-- SAME-PAGE CAMPUS SELECTOR -->
-<section class="campus-switcher-section" id="campusSwitcher">
-  <div class="container campus-switcher-inner">
-    <div class="campus-switcher-heading">
-      <span class="section-label">CHOOSE YOUR CAMPUS</span>
-      <h2>Explore Our <span>Campuses</span></h2>
-      <p>Both campuses offer classes from Nursery to Class 10.</p>
-    </div>
-    <div class="campus-switcher-buttons">
-      <button type="button" class="campus-option active" data-campus="girls" onclick="switchCampus('girls')">
-        <i class="fa-solid fa-people-roof"></i><span><strong>Girls Campus</strong><small>Nursery – Class 10</small></span><i class="fa-solid fa-arrow-right campus-option-arrow"></i>
-      </button>
-      <button type="button" class="campus-option" data-campus="boys" onclick="switchCampus('boys')">
-        <i class="fa-solid fa-school"></i><span><strong>Boys Campus</strong><small>Nursery – Class 10</small></span><i class="fa-solid fa-arrow-right campus-option-arrow"></i>
-      </button>
-    </div>
-    <div class="campus-selected-info">
-      <span class="campus-selected-label">SELECTED CAMPUS</span>
-      <h3 id="campusSelectedTitle">Girls Campus</h3>
-      <p id="campusSelectedDescription">Explore the Girls Campus of Swat Model School, with classes from Nursery to Class 10.</p>
-      <div class="campus-selected-actions">
-        <a class="btn btn-primary" href="#academics">Explore Academics <i class="fa-solid fa-arrow-right"></i></a>
-        <button type="button" class="btn btn-outline-blue" onclick="openModal('admissionModal')">Apply for Admission</button>
-      </div>
-    </div>
-  </div>
-</section>
 
 <!-- =========================================================
      QUICK ACCESS
@@ -1036,11 +1016,23 @@
 
 
             <p class="director-message">
-                At Swat Model School, we believe education is more than the study of books—it is the foundation on which confidence, character and a brighter future are built. Our commitment is to provide every student with a supportive, disciplined and inspiring learning environment where curiosity is encouraged, knowledge is strengthened, and respect, responsibility and honesty are practised every day.
+
+                At Swat Model School, our goal is to provide
+                students with an environment where they can
+                learn with confidence, develop strong moral
+                values and prepare themselves for a successful
+                future.
+
             </p>
 
+
             <p>
-                Every child has unique abilities and the potential to achieve meaningful goals. With dedicated teachers, strong family-school cooperation and opportunities to learn through effort and creativity, we aim to help our students become thoughtful, capable and responsible citizens. Let us work together to give the next generation the knowledge, values and courage to meet tomorrow’s challenges and contribute positively to society.
+
+                We believe that every child has unique potential.
+                With the right guidance, encouragement and
+                educational environment, that potential can become
+                a meaningful achievement.
+
             </p>
 
 
@@ -1568,131 +1560,80 @@
             </h2>
 
             <p>
-                Choose a campus to explore its gallery. Each campus has space for 10 photos.
+                A glimpse of our school environment,
+                activities and student life.
             </p>
 
         </div>
 
 
-        <div class="campus-gallery-panel" data-gallery-campus="girls" >
-            <div class="campus-gallery-heading">
-                <h3>Girls Campus Gallery</h3>
-                <p>School life, classrooms, activities and campus moments.</p>
-            </div>
-            <div class="gallery-modern campus-photo-grid">
+        <div class="gallery-modern">
 
-                <div class="campus-gallery-item" onclick="openLightbox(this.querySelector('img').src)">
-                    <img src="girls-campus-01.jpg" data-fallback="school-building-1.png" alt="Girls Campus photo 1" loading="lazy">
-                    <div class="gallery-overlay"><span class="gallery-label"><i class="fa-solid fa-camera"></i> Girls Campus · Photo 1</span></div>
-                </div>
 
-                <div class="campus-gallery-item" onclick="openLightbox(this.querySelector('img').src)">
-                    <img src="girls-campus-02.jpg" data-fallback="school-building-1.png" alt="Girls Campus photo 2" loading="lazy">
-                    <div class="gallery-overlay"><span class="gallery-label"><i class="fa-solid fa-camera"></i> Girls Campus · Photo 2</span></div>
-                </div>
+            <div
+                class="gallery-main"
+                onclick="openLightbox('activities.png')">
 
-                <div class="campus-gallery-item" onclick="openLightbox(this.querySelector('img').src)">
-                    <img src="girls-campus-03.jpg" data-fallback="school-building-1.png" alt="Girls Campus photo 3" loading="lazy">
-                    <div class="gallery-overlay"><span class="gallery-label"><i class="fa-solid fa-camera"></i> Girls Campus · Photo 3</span></div>
-                </div>
+                <img
+                    src="activities.png"
+                    alt="School Activities">
 
-                <div class="campus-gallery-item" onclick="openLightbox(this.querySelector('img').src)">
-                    <img src="girls-campus-04.jpg" data-fallback="school-building-1.png" alt="Girls Campus photo 4" loading="lazy">
-                    <div class="gallery-overlay"><span class="gallery-label"><i class="fa-solid fa-camera"></i> Girls Campus · Photo 4</span></div>
-                </div>
+                <div class="gallery-overlay">
 
-                <div class="campus-gallery-item" onclick="openLightbox(this.querySelector('img').src)">
-                    <img src="girls-campus-05.jpg" data-fallback="school-building-1.png" alt="Girls Campus photo 5" loading="lazy">
-                    <div class="gallery-overlay"><span class="gallery-label"><i class="fa-solid fa-camera"></i> Girls Campus · Photo 5</span></div>
-                </div>
+                    <span class="gallery-label">
 
-                <div class="campus-gallery-item" onclick="openLightbox(this.querySelector('img').src)">
-                    <img src="girls-campus-06.jpg" data-fallback="school-building-1.png" alt="Girls Campus photo 6" loading="lazy">
-                    <div class="gallery-overlay"><span class="gallery-label"><i class="fa-solid fa-camera"></i> Girls Campus · Photo 6</span></div>
-                </div>
+                        <i class="fa-solid fa-camera"></i>
+                        School Activities
 
-                <div class="campus-gallery-item" onclick="openLightbox(this.querySelector('img').src)">
-                    <img src="girls-campus-07.jpg" data-fallback="school-building-1.png" alt="Girls Campus photo 7" loading="lazy">
-                    <div class="gallery-overlay"><span class="gallery-label"><i class="fa-solid fa-camera"></i> Girls Campus · Photo 7</span></div>
-                </div>
+                    </span>
 
-                <div class="campus-gallery-item" onclick="openLightbox(this.querySelector('img').src)">
-                    <img src="girls-campus-08.jpg" data-fallback="school-building-1.png" alt="Girls Campus photo 8" loading="lazy">
-                    <div class="gallery-overlay"><span class="gallery-label"><i class="fa-solid fa-camera"></i> Girls Campus · Photo 8</span></div>
-                </div>
-
-                <div class="campus-gallery-item" onclick="openLightbox(this.querySelector('img').src)">
-                    <img src="girls-campus-09.jpg" data-fallback="school-building-1.png" alt="Girls Campus photo 9" loading="lazy">
-                    <div class="gallery-overlay"><span class="gallery-label"><i class="fa-solid fa-camera"></i> Girls Campus · Photo 9</span></div>
-                </div>
-
-                <div class="campus-gallery-item" onclick="openLightbox(this.querySelector('img').src)">
-                    <img src="girls-campus-10.jpg" data-fallback="school-building-1.png" alt="Girls Campus photo 10" loading="lazy">
-                    <div class="gallery-overlay"><span class="gallery-label"><i class="fa-solid fa-camera"></i> Girls Campus · Photo 10</span></div>
                 </div>
 
             </div>
+
+
+
+            <div
+                class="gallery-small"
+                onclick="openLightbox('school-building-1.png')">
+
+                <img
+                    src="school-building-1.png"
+                    alt="School Building">
+
+                <div class="gallery-overlay">
+
+                    <span class="gallery-label">
+                        School Campus
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <div
+                class="gallery-small"
+                onclick="openLightbox('school-building-2.png')">
+
+                <img
+                    src="school-building-2.png"
+                    alt="School Campus">
+
+                <div class="gallery-overlay">
+
+                    <span class="gallery-label">
+                        Our Campus
+                    </span>
+
+                </div>
+
+            </div>
+
+
         </div>
 
-        <div class="campus-gallery-panel" data-gallery-campus="boys" hidden>
-            <div class="campus-gallery-heading">
-                <h3>Boys Campus Gallery</h3>
-                <p>School life, classrooms, activities and campus moments.</p>
-            </div>
-            <div class="gallery-modern campus-photo-grid">
-
-                <div class="campus-gallery-item" onclick="openLightbox(this.querySelector('img').src)">
-                    <img src="boys-campus-01.jpg" data-fallback="school-building-2.png" alt="Boys Campus photo 1" loading="lazy">
-                    <div class="gallery-overlay"><span class="gallery-label"><i class="fa-solid fa-camera"></i> Boys Campus · Photo 1</span></div>
-                </div>
-
-                <div class="campus-gallery-item" onclick="openLightbox(this.querySelector('img').src)">
-                    <img src="boys-campus-02.jpg" data-fallback="school-building-2.png" alt="Boys Campus photo 2" loading="lazy">
-                    <div class="gallery-overlay"><span class="gallery-label"><i class="fa-solid fa-camera"></i> Boys Campus · Photo 2</span></div>
-                </div>
-
-                <div class="campus-gallery-item" onclick="openLightbox(this.querySelector('img').src)">
-                    <img src="boys-campus-03.jpg" data-fallback="school-building-2.png" alt="Boys Campus photo 3" loading="lazy">
-                    <div class="gallery-overlay"><span class="gallery-label"><i class="fa-solid fa-camera"></i> Boys Campus · Photo 3</span></div>
-                </div>
-
-                <div class="campus-gallery-item" onclick="openLightbox(this.querySelector('img').src)">
-                    <img src="boys-campus-04.jpg" data-fallback="school-building-2.png" alt="Boys Campus photo 4" loading="lazy">
-                    <div class="gallery-overlay"><span class="gallery-label"><i class="fa-solid fa-camera"></i> Boys Campus · Photo 4</span></div>
-                </div>
-
-                <div class="campus-gallery-item" onclick="openLightbox(this.querySelector('img').src)">
-                    <img src="boys-campus-05.jpg" data-fallback="school-building-2.png" alt="Boys Campus photo 5" loading="lazy">
-                    <div class="gallery-overlay"><span class="gallery-label"><i class="fa-solid fa-camera"></i> Boys Campus · Photo 5</span></div>
-                </div>
-
-                <div class="campus-gallery-item" onclick="openLightbox(this.querySelector('img').src)">
-                    <img src="boys-campus-06.jpg" data-fallback="school-building-2.png" alt="Boys Campus photo 6" loading="lazy">
-                    <div class="gallery-overlay"><span class="gallery-label"><i class="fa-solid fa-camera"></i> Boys Campus · Photo 6</span></div>
-                </div>
-
-                <div class="campus-gallery-item" onclick="openLightbox(this.querySelector('img').src)">
-                    <img src="boys-campus-07.jpg" data-fallback="school-building-2.png" alt="Boys Campus photo 7" loading="lazy">
-                    <div class="gallery-overlay"><span class="gallery-label"><i class="fa-solid fa-camera"></i> Boys Campus · Photo 7</span></div>
-                </div>
-
-                <div class="campus-gallery-item" onclick="openLightbox(this.querySelector('img').src)">
-                    <img src="boys-campus-08.jpg" data-fallback="school-building-2.png" alt="Boys Campus photo 8" loading="lazy">
-                    <div class="gallery-overlay"><span class="gallery-label"><i class="fa-solid fa-camera"></i> Boys Campus · Photo 8</span></div>
-                </div>
-
-                <div class="campus-gallery-item" onclick="openLightbox(this.querySelector('img').src)">
-                    <img src="boys-campus-09.jpg" data-fallback="school-building-2.png" alt="Boys Campus photo 9" loading="lazy">
-                    <div class="gallery-overlay"><span class="gallery-label"><i class="fa-solid fa-camera"></i> Boys Campus · Photo 9</span></div>
-                </div>
-
-                <div class="campus-gallery-item" onclick="openLightbox(this.querySelector('img').src)">
-                    <img src="boys-campus-10.jpg" data-fallback="school-building-2.png" alt="Boys Campus photo 10" loading="lazy">
-                    <div class="gallery-overlay"><span class="gallery-label"><i class="fa-solid fa-camera"></i> Boys Campus · Photo 10</span></div>
-                </div>
-
-            </div>
-        </div>
 
         <div class="gallery-more">
 
@@ -2511,15 +2452,6 @@
             id="admissionForm"
             action="https://api.web3forms.com/submit"
             method="POST">
-            <div class="form-section-title"><span>00</span><div><strong>Campus Selection</strong><small>Choose the campus for this application</small></div></div>
-            <div class="form-grid"><div class="form-group full">
-              <label for="admissionCampus">Applying to Campus *</label>
-              <select name="Campus" id="admissionCampus" required>
-                <option value="Girls Campus">Girls Campus</option>
-                <option value="Boys Campus">Boys Campus</option>
-              </select>
-            </div></div>
-
 
 
             <!-- WEB3FORMS ACCESS KEY -->
