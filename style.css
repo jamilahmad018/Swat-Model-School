@@ -4843,3 +4843,46 @@ a {
 .campus-selected-actions .btn { cursor: pointer; }
 .btn-outline-blue { border: 1px solid #1769e0; color: #1769e0; background: white; }
 @media (max-width: 800px) { .campus-switcher-inner { grid-template-columns: 1fr; gap: 22px; } .campus-switcher-buttons { grid-template-columns: 1fr; } }
+
+
+/* =========================================================
+   CAMPUS GALLERIES + MOBILE/INTERACTION FIXES
+========================================================= */
+.campus-switcher-section { padding: 56px 0 42px; }
+.campus-switcher-inner { min-width: 0; }
+.campus-switcher-buttons { min-width: 0; }
+.campus-option { width: 100%; font: inherit; }
+.campus-selected-actions .btn { border: 0; }
+.campus-gallery-panel[hidden] { display: none !important; }
+.campus-gallery-heading { margin: 0 0 18px; }
+.campus-gallery-heading h3 { color: var(--blue-dark); font-size: 24px; margin-bottom: 4px; }
+.campus-gallery-heading p { color: var(--muted); font-size: 12px; }
+.campus-photo-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); grid-template-rows: none; grid-auto-rows: 190px; max-width: 100%; }
+.campus-gallery-item { position: relative; min-width: 0; overflow: hidden; border-radius: 16px; cursor: pointer; background: var(--blue-light); }
+.campus-gallery-item img { width: 100%; height: 100%; object-fit: cover; }
+.campus-gallery-item:hover img { transform: scale(1.05); }
+.campus-gallery-item .gallery-overlay { padding: 12px; }
+.campus-gallery-item .gallery-label { font-size: 11px; }
+.mobile-menu { position: relative; z-index: 2; flex-shrink: 0; align-items: center; justify-content: center; }
+#mainNav { min-width: 0; }
+button.nav-link { border: 0; background: transparent; font-family: inherit; cursor: pointer; text-align: left; }
+@media (max-width: 900px) {
+  #mainNav { top: 70px; max-height: calc(100vh - 78px); overflow-y: auto; }
+  .campus-photo-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); grid-auto-rows: 170px; }
+}
+@media (max-width: 600px) {
+  .campus-switcher-section { padding: 42px 0 30px; }
+  .campus-selected-info { padding: 20px 17px; }
+  .campus-selected-info h3 { font-size: 22px; }
+  .campus-selected-actions { flex-direction: column; align-items: stretch; }
+  .campus-selected-actions .btn { width: 100%; }
+  .campus-photo-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-auto-rows: 155px; gap: 10px; }
+  .campus-gallery-heading h3 { font-size: 21px; }
+  .notice-button { max-width: calc(100vw - 90px); }
+}
+@media (max-width: 360px) {
+  .brand-text strong { font-size: 13px; }
+  .brand img { width: 40px; height: 40px; }
+  .mobile-menu { width: 40px; height: 40px; }
+  .campus-photo-grid { grid-auto-rows: 130px; }
+}
