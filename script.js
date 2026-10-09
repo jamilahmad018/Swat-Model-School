@@ -1,7 +1,6 @@
 /* Swat Model School — reliable interactions */
 (function () {
   'use strict';
-
   document.documentElement.classList.add('js-enabled');
 
   document.addEventListener('DOMContentLoaded', function () {
@@ -157,9 +156,7 @@
       return;
     }
 
-    var observer;
-    try {
-      observer = new IntersectionObserver(
+    var observer = new IntersectionObserver(
       function (entries) {
         entries.forEach(function (entry) {
           if (entry.isIntersecting) {
@@ -171,13 +168,7 @@
       {
         threshold: 0.1
       }
-      );
-    } catch (error) {
-      elements.forEach(function (el) {
-        el.classList.add('visible');
-      });
-      return;
-    }
+    );
 
     elements.forEach(function (el) {
       observer.observe(el);
