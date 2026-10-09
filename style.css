@@ -4820,3 +4820,26 @@ a {
     }
 
 }
+
+/* Same-page campus switcher — append to existing style.css */
+.campus-switch { border: 0; background: transparent; font: inherit; cursor: pointer; padding: 10px 8px; }
+.campus-switch.active { color: #1769e0; }
+.campus-switcher-section { padding: 64px 0 48px; background: #f7faff; }
+.campus-switcher-inner { display: grid; grid-template-columns: 1fr 1.25fr; gap: 26px 40px; align-items: center; }
+.campus-switcher-heading h2 { margin: 10px 0; color: #0b2d5c; font-size: clamp(28px, 3vw, 40px); }
+.campus-switcher-heading h2 span { color: #f05a9d; }
+.campus-switcher-heading p, .campus-selected-info p { color: #64748b; line-height: 1.7; }
+.campus-switcher-buttons { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.campus-option { display: flex; align-items: center; gap: 12px; text-align: left; border: 1px solid #dce6f3; border-radius: 16px; background: #fff; color: #0b2d5c; padding: 18px 15px; cursor: pointer; transition: .2s ease; min-width: 0; }
+.campus-option > i:first-child { font-size: 24px; color: #1769e0; }
+.campus-option span { display: flex; flex-direction: column; gap: 5px; flex: 1; }
+.campus-option small { color: #64748b; font-size: 12px; }
+.campus-option-arrow { color: #f05a9d; }
+.campus-option.active { border-color: #1769e0; box-shadow: 0 10px 26px rgba(23,105,224,.12); background: #eef6ff; }
+.campus-selected-info { grid-column: 1 / -1; border-radius: 18px; padding: 24px 28px; background: white; border: 1px solid #e3eaf4; box-shadow: 0 12px 35px rgba(11,45,92,.05); }
+.campus-selected-label { color: #1769e0; font-size: 11px; letter-spacing: 1.4px; font-weight: 800; }
+.campus-selected-info h3 { margin: 8px 0; color: #0b2d5c; font-size: 25px; }
+.campus-selected-actions { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 18px; }
+.campus-selected-actions .btn { cursor: pointer; }
+.btn-outline-blue { border: 1px solid #1769e0; color: #1769e0; background: white; }
+@media (max-width: 800px) { .campus-switcher-inner { grid-template-columns: 1fr; gap: 22px; } .campus-switcher-buttons { grid-template-columns: 1fr; } }
