@@ -4889,3 +4889,207 @@ button.nav-link { border: 0; background: transparent; font-family: inherit; curs
   .mobile-menu { width: 40px; height: 40px; }
   .campus-photo-grid { grid-auto-rows: 130px; }
 }
+
+/* =========================================================
+   MODERN TEACHING COMMUNITY
+========================================================= */
+
+.faculty-section {
+    background: linear-gradient(180deg, #f3f8ff 0%, #ffffff 100%);
+}
+
+.faculty-community {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 24px;
+    align-items: stretch;
+    margin-top: 36px;
+}
+
+.community-visual {
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 430px;
+    padding: 38px;
+    border-radius: 26px;
+    color: #ffffff;
+    background:
+        radial-gradient(circle at top right, #356fc0 0, transparent 45%),
+        linear-gradient(145deg, #102b50, #174b83);
+    box-shadow: 0 18px 45px rgba(18, 52, 94, 0.14);
+}
+
+.community-icon {
+    display: grid;
+    place-items: center;
+    width: 86px;
+    height: 86px;
+    margin-bottom: 28px;
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 24px;
+    background: rgba(255,255,255,0.12);
+    font-size: 38px;
+}
+
+.community-visual > span {
+    color: #ff8bc0;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+}
+
+.community-visual h3 {
+    margin: 12px 0;
+    color: #ffffff;
+    font-size: clamp(28px, 3vw, 38px);
+    line-height: 1.2;
+}
+
+.community-visual p {
+    max-width: 390px;
+    color: #e1ebf8;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.community-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+    margin-top: 22px;
+}
+
+.community-pills span {
+    padding: 9px 12px;
+    border: 1px solid rgba(255,255,255,0.18);
+    border-radius: 30px;
+    background: rgba(255,255,255,0.09);
+    color: #ffffff;
+    font-size: 11px;
+}
+
+.community-pills i {
+    margin-right: 5px;
+    color: #ff8bc0;
+}
+
+.community-principles {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.principle-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+    padding: 24px;
+    border: 1px solid #e3ebf5;
+    border-radius: 22px;
+    background: #ffffff;
+    box-shadow: 0 8px 25px rgba(18, 52, 94, 0.045);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.principle-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 32px rgba(18, 52, 94, 0.10);
+}
+
+.principle-icon {
+    display: grid;
+    place-items: center;
+    width: 54px;
+    height: 54px;
+    flex-shrink: 0;
+    border-radius: 17px;
+    font-size: 23px;
+}
+
+.principle-icon.blue {
+    color: #1769e0;
+    background: #eaf3ff;
+}
+
+.principle-icon.pink {
+    color: #e84f9b;
+    background: #fff0f7;
+}
+
+.principle-card h3 {
+    margin: 0 0 9px;
+    color: #12345e;
+    font-size: 17px;
+    line-height: 1.4;
+}
+
+.principle-card p {
+    margin: 0;
+    color: #6b7890;
+    font-size: 13px;
+    line-height: 1.75;
+}
+
+.faculty-community-footer {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 22px;
+    padding: 22px 26px;
+    border: 1px solid #f9d7e8;
+    border-radius: 18px;
+    background: #fff2f8;
+    color: #12345e;
+}
+
+.faculty-community-footer > i {
+    flex-shrink: 0;
+    color: #e84f9b;
+    font-size: 28px;
+}
+
+.faculty-community-footer p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.faculty-community-footer strong {
+    margin-right: 5px;
+}
+
+@media (max-width: 900px) {
+    .faculty-community {
+        grid-template-columns: 1fr;
+    }
+
+    .community-visual {
+        min-height: 350px;
+        padding: 30px;
+    }
+}
+
+@media (max-width: 560px) {
+    .community-principles {
+        grid-template-columns: 1fr;
+    }
+
+    .principle-card {
+        flex-direction: row;
+        padding: 20px;
+    }
+
+    .community-visual {
+        min-height: auto;
+        padding: 26px;
+    }
+
+    .faculty-community-footer {
+        align-items: flex-start;
+        padding: 18px;
+    }
+}
